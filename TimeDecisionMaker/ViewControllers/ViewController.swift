@@ -9,11 +9,21 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    let service = Service()
+    var organizerEvents = [Appointment]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+       
+        organizerEvents = service.fetchAppointment(resourceFile: "A")
+        var i = 1
+        for org in organizerEvents {
+            print("#\(i) \(org.summary) — \(org.location)")
+            i += 1
+        }
     }
 
 
 }
+
 
