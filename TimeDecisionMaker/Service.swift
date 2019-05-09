@@ -9,8 +9,8 @@ import UIKit
 
 class Service: NSObject {
     
-    var fileKeys = ["SUMMARY:", "CREATED:", "STATUS:", "DESCRIPTION:", "UID:", "DTSTART:", "DTEND:"]
-    var timezone: String!
+    private var fileKeys = ["SUMMARY:", "CREATED:", "STATUS:", "DESCRIPTION:", "UID:", "DTSTART:", "DTEND:"]
+    private var timezone: String!
     var appointments = [Appointment]()
     
     public func fetchAppointment(resourceFile: String) -> [Appointment] {

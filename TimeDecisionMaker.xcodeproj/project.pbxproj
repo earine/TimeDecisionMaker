@@ -19,6 +19,9 @@
 		748F59CB22706C6600B88B7D /* A.ics in Resources */ = {isa = PBXBuildFile; fileRef = 748F59C922706C6600B88B7D /* A.ics */; };
 		748F59CE22706EB300B88B7D /* B.ics in Resources */ = {isa = PBXBuildFile; fileRef = 748F59CD22706EB300B88B7D /* B.ics */; };
 		748F59CF22706EB300B88B7D /* B.ics in Resources */ = {isa = PBXBuildFile; fileRef = 748F59CD22706EB300B88B7D /* B.ics */; };
+		9C25D72D2284954300653284 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE4EEA12281F72C005212F4 /* Service.swift */; };
+		9C25D72E228495D900653284 /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE4EE9F2281F522005212F4 /* Appointment.swift */; };
+		9C25D72F2284971300653284 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748F59A52270681B00B88B7D /* ViewController.swift */; };
 		9CE4EEA02281F523005212F4 /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE4EE9F2281F522005212F4 /* Appointment.swift */; };
 		9CE4EEA22281F72C005212F4 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE4EEA12281F72C005212F4 /* Service.swift */; };
 /* End PBXBuildFile section */
@@ -270,8 +273,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C25D72F2284971300653284 /* ViewController.swift in Sources */,
 				748F59B92270681D00B88B7D /* TimeDecisionMakerTests.swift in Sources */,
 				748F59C82270687C00B88B7D /* RDTimeDecisionMaker.swift in Sources */,
+				9C25D72D2284954300653284 /* Service.swift in Sources */,
+				9C25D72E228495D900653284 /* Appointment.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

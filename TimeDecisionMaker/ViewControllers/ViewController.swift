@@ -9,18 +9,19 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    let rd = RDTimeDecisionMaker()
     let service = Service()
     var organizerEvents = [Appointment]()
+    var attendeeEvents = [Appointment]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+      let minute: TimeInterval = 3600.0
         organizerEvents = service.fetchAppointment(resourceFile: "A")
-        var i = 1
-        for org in organizerEvents {
-            print("#\(i) \(org.summary) — \(org.location)")
-            i += 1
-        }
+       
+        attendeeEvents = service.fetchAppointment(resourceFile: "B")
+        var a = rd.suggestAppointments(organizerICS: "A", attendeeICS: "B", duration: minute)
+        print(a)
     }
 
 

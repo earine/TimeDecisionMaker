@@ -14,6 +14,7 @@ class Appointment : NSObject {
     public var UID : String
     public var descriptionAp : String?
     public var status : Status!
+    public var dateInterval : DateInterval!
     public var dateStart : Date!
     public var dateEnd : Date!
     private let dateFormatter = DateFormatter()
@@ -33,6 +34,7 @@ class Appointment : NSObject {
         self.created = created
         self.dateStart = dateStart
         self.dateEnd = dateEnd
+        self.dateInterval = DateInterval(start: dateStart, end: dateEnd)
     }
     
     func isReadyToAdd() -> Bool {
