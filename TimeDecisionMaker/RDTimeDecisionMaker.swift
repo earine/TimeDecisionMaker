@@ -24,7 +24,9 @@ class RDTimeDecisionMaker: NSObject {
                              duration:TimeInterval) -> [DateInterval] {
         let organizerFreeSlots = makeDateIntervalList(objects: service.fetchAppointment(resourceFile: organizerICS))
         let attendeeFreeSlots = makeDateIntervalList(objects: service.fetchAppointment(resourceFile: attendeeICS))
+        print(attendeeFreeSlots)
         let suggestedAppointments = findTimeForAppointment(person1: organizerFreeSlots, person2: attendeeFreeSlots, duration: duration)
+        print(suggestedAppointments)
         if suggestedAppointments.isEmpty {
             return []
         } else {
@@ -34,15 +36,31 @@ class RDTimeDecisionMaker: NSObject {
     
     private func makeDateIntervalList(objects: [Appointment]) -> [DateInterval]{
         var dateIntervals = [DateInterval]()
+        
         for object in objects {
             dateIntervals.append(object.dateInterval)
         }
+        
         dateIntervals.sort()
-        return findFreeSlots(dates: dateIntervals)
+        var newList = [DateInterval]()
+        newList.append(contentsOf: dateIntervals)
+        for (i) in 0..<dateIntervals.count {
+            for j in 0..<dateIntervals.count {
+                if j != i && dateIntervals[i].contains(dateIntervals[j].start) && dateIntervals[i].contains(dateIntervals[j].end) {
+                    if newList.contains(dateIntervals[j]) {
+                        newList.remove(at: newList.firstIndex(of: dateIntervals[j])!)
+                    }
+                }
+            }
+        }
+        return findFreeSlots(dates: newList)
     }
     
     private func findFreeSlots(dates: [DateInterval]) -> [DateInterval] {
         var freeSlots = [DateInterval]()
+        guard dates.count > 1 else {
+            return []
+        }
         for i in 0..<dates.count {
             if i < dates.count-1 && dates[i].start != dates[i+1].start && dates[i].end != dates[i+1].end {
                 freeSlots.append(DateInterval.init(start: dates[i].end, end: dates[i+1].start))
@@ -57,8 +75,8 @@ class RDTimeDecisionMaker: NSObject {
             for p2 in person2 {
                 if p1.intersects(p2) {
                     if p1.intersection(with: p2)!.duration > duration {
-                    optimalTimeIntervals.append(p1.intersection(with: p2)!)
-                }
+                        optimalTimeIntervals.append(p1.intersection(with: p2)!)
+                    }
                 }
             }
         }
