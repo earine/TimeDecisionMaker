@@ -34,6 +34,8 @@ class AppointmentTableViewCell: UITableViewCell {
         summaryLabel.isHidden = true
         timeLabel.isHidden = true
         durationLabel.isHidden = true
+        noEventsLabel.text = "No events for today :("
+        
     }
     
     public func UIforDayWithEvents() {

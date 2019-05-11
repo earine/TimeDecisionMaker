@@ -102,7 +102,19 @@ extension Date {
         let delta = TimeInterval(timeZone.secondsFromGMT() - initTimeZone.secondsFromGMT())
         return addingTimeInterval(delta)
     }
+    func monthAsString() -> String {
+        let df = DateFormatter()
+        df.setLocalizedDateFormatFromTemplate("MMM")
+        return df.string(from: self)
+    }
+    
+    func yearAsString() -> Int {
+        let df = DateFormatter()
+        df.setLocalizedDateFormatFromTemplate("yyyy")
+        return Int(df.string(from: self))!
+    }
 }
+
 
 extension TimeInterval {
     func format(using units: NSCalendar.Unit) -> String? {
