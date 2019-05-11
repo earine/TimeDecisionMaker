@@ -1,0 +1,16 @@
+PODS:
+  - SBPickerSelector (2.0.2)
+
+DEPENDENCIES:
+  - SBPickerSelector
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - SBPickerSelector
+
+SPEC CHECKSUMS:
+  SBPickerSelector: 316852f48930f8fe2774ba603a21477146bef00a
+
+PODFILE CHECKSUM: e4ac49e391e1f1d7e45860aad188dd5607c5c4ae
+
+COCOAPODS: 1.5.3
