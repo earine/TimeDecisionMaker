@@ -6,28 +6,62 @@
 //
 
 import UIKit
+import SBPickerSelector
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+class ViewController: UIViewController {
     
-    let formatter = DateFormatter()
     public var monthes = DateFormatter().monthSymbols
-    public var daysInMonth = [Date]()
     private let rd = RDTimeDecisionMaker()
     private let service = Service()
-    private var organizerEvents = [Appointment]()
-    private var attendeeEvents = [Appointment]()
+    
+    private var daysInMonth = [Date]()
     private var dictionary = [Date : [Appointment]]()
+    
+    private var initialMonth : String = Date().monthAsString()
+    private var initialYear : Int = Date().yearAsString()
     
     @IBOutlet weak var eventsTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         calculateDatesWithEvents()
         
     }
     
+    func calculateDatesWithEvents() {
+        self.navigationItem.title = initialMonth
+        print(monthes![4])
+        daysInMonth = service.getDaysByMonth(month: initialMonth, year: initialYear)
+        let events = service.fetchAppointment(resourceFile: "A")
+        dictionary = service.getEventsForSelectedMonth(eventsList: events, monthDates: daysInMonth).0
+        daysInMonth.remove(at: daysInMonth.count - 1)
+        
+        
+    }
+    
+    
+    @IBAction func changeMonth(_ sender: Any) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM"
+        let date = dateFormatter.date(from: "2019-01")!
+        
+        SBPickerSwiftSelector(mode: SBPickerSwiftSelector.Mode.text, data: [monthes, ["2019", "2020"]], defaultDate: date).cancel {
+            print("cancel")
+            }.set { values in
+                if let values = values as? [String] {
+                    self.initialMonth = values[0]
+                    self.initialYear = Int(values[1])!
+                    self.calculateDatesWithEvents()
+                    self.eventsTableView.reloadData()
+                }
+            }.present(into: self)
+    }
+    
+    
+}
+
+
+extension ViewController: UITableViewDelegate, UITableViewDataSource{
     func numberOfSections(in tableView: UITableView) -> Int {
         return daysInMonth.count
     }
@@ -38,22 +72,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         } else {
             return 0
         }
-        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "appointmentCell", for: indexPath) as! AppointmentTableViewCell
-        let refIndex = indexPath.section
         
+        let refIndex = indexPath.section
         let referenceObject = dictionary[daysInMonth[refIndex]]
-    
         let appointment = referenceObject![indexPath.row]
         
         if appointment.summary.isEmpty {
             cell.UIforDayWithoutEvents()
             cell.UIforFirstRow(dateValue: appointment.getDayFromDate(date: daysInMonth[refIndex]), weekdayValue: appointment.getWeekDay(date: daysInMonth[refIndex]))
-            cell.noEventsLabel.text = "No events for today :("
         } else {
             cell.UIforDayWithEvents()
             cell.noEventsLabel.isHidden = true
@@ -71,25 +102,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return cell
     }
     
-    
-    
-    func calculateDatesWithEvents() {
-        daysInMonth = service.getDaysByMonth(month: 4, year: 2019)
-        var events = service.fetchAppointment(resourceFile: "A")
-        for e in events {
-            print(e.dateInterval)
-        }
-//        organizerEvents = service.getEventsForSelectedMonth(eventsList: s).1
-      
-        dictionary = service.getEventsForSelectedMonth(eventsList: events, monthDates: daysInMonth).0
-//        print(dictionary[daysInMonth[0]])
-
-       
-        
-        daysInMonth.remove(at: daysInMonth.count - 1)
+    func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        return service.getDatesFromMonth(month: daysInMonth)
     }
-
+    
 }
-
-
 

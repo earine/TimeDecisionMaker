@@ -67,11 +67,9 @@ class Service: NSObject {
                 eventsForSelectedMonth.append(event)
             }
         }
-        print(eventsForSelectedMonth.count)
-        var sortedEvents = eventsForSelectedMonth.sorted(by: { $0.dateInterval.start < $1.dateInterval.start})
-        for e in sortedEvents {
-            print(e.dateInterval)
-        }
+        
+        let sortedEvents = eventsForSelectedMonth.sorted(by: { $0.dateInterval.start < $1.dateInterval.start})
+        
         for date in monthDates {
             for event in sortedEvents {
                 if ev[date] != nil {
@@ -93,10 +91,10 @@ class Service: NSObject {
         return (ev, sortedEvents)
     }
     
-    public func getDaysByMonth(month: Int, year: Int) -> [Date] {
+    public func getDaysByMonth(month: String, year: Int) -> [Date] {
         let calendar = Calendar.current
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM"
+        formatter.dateFormat = "yyyy-MMM"
         
         formatter.timeZone = TimeZone(identifier: "Europe/Kiev")
         let components = calendar.dateComponents([.year, .month], from: formatter.date(from: "\(year)-\(month)")!)
@@ -108,6 +106,14 @@ class Service: NSObject {
             dates.append(date.convertToTimeZone(initTimeZone:TimeZone(abbreviation: "UTC")!, timeZone: TimeZone(identifier: "Europe/Kiev")!))
         }
         return dates
+    }
+    
+    public func getDatesFromMonth(month: [Date]) -> [String] {
+        var values = [String]()
+        for i in 1...month.count {
+            values.append("\(i)")
+        }
+        return values
     }
     
     private func getElementByKey(element: String) -> (String?, String?) {

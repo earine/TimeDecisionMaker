@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A0FC7133BD1CB66516C60E2 /* Pods_TimeDecisionMakerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 079C15BDC00A57B08E846A2E /* Pods_TimeDecisionMakerTests.framework */; };
+		3C03865BB29166A36F0F8F02 /* Pods_TimeDecisionMaker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 953AF070F3EC533C9AC4D00F /* Pods_TimeDecisionMaker.framework */; };
 		748F59A42270681B00B88B7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748F59A32270681B00B88B7D /* AppDelegate.swift */; };
 		748F59A62270681B00B88B7D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748F59A52270681B00B88B7D /* ViewController.swift */; };
 		748F59A92270681B00B88B7D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 748F59A72270681B00B88B7D /* Main.storyboard */; };
@@ -39,6 +41,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0037337F3BB9B9B36FF8FEAD /* Pods-TimeDecisionMaker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeDecisionMaker.release.xcconfig"; path = "Pods/Target Support Files/Pods-TimeDecisionMaker/Pods-TimeDecisionMaker.release.xcconfig"; sourceTree = "<group>"; };
+		02270B4D3198AC3EA2788E90 /* Pods-TimeDecisionMakerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeDecisionMakerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TimeDecisionMakerTests/Pods-TimeDecisionMakerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		079C15BDC00A57B08E846A2E /* Pods_TimeDecisionMakerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TimeDecisionMakerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C9BF1C3C1239B47CEBDF029 /* Pods-TimeDecisionMakerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeDecisionMakerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TimeDecisionMakerTests/Pods-TimeDecisionMakerTests.release.xcconfig"; sourceTree = "<group>"; };
 		748F59A02270681B00B88B7D /* TimeDecisionMaker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeDecisionMaker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		748F59A32270681B00B88B7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		748F59A52270681B00B88B7D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -52,6 +58,8 @@
 		748F59C62270687C00B88B7D /* RDTimeDecisionMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RDTimeDecisionMaker.swift; sourceTree = "<group>"; };
 		748F59C922706C6600B88B7D /* A.ics */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = A.ics; sourceTree = "<group>"; };
 		748F59CD22706EB300B88B7D /* B.ics */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = B.ics; sourceTree = "<group>"; };
+		7B9B944C6F83467AE21D33D6 /* Pods-TimeDecisionMaker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeDecisionMaker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TimeDecisionMaker/Pods-TimeDecisionMaker.debug.xcconfig"; sourceTree = "<group>"; };
+		953AF070F3EC533C9AC4D00F /* Pods_TimeDecisionMaker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TimeDecisionMaker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C25D7302285C53F00653284 /* AppointmentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentTableViewCell.swift; sourceTree = "<group>"; };
 		9CE4EE9F2281F522005212F4 /* Appointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appointment.swift; sourceTree = "<group>"; };
 		9CE4EEA12281F72C005212F4 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
@@ -62,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C03865BB29166A36F0F8F02 /* Pods_TimeDecisionMaker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,18 +78,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A0FC7133BD1CB66516C60E2 /* Pods_TimeDecisionMakerTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A5879CB3C7CBD9869CA8E6D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				953AF070F3EC533C9AC4D00F /* Pods_TimeDecisionMaker.framework */,
+				079C15BDC00A57B08E846A2E /* Pods_TimeDecisionMakerTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		748F59972270681B00B88B7D = {
 			isa = PBXGroup;
 			children = (
 				748F59A22270681B00B88B7D /* TimeDecisionMaker */,
 				748F59B72270681D00B88B7D /* TimeDecisionMakerTests */,
 				748F59A12270681B00B88B7D /* Products */,
+				E7BF3A88FADB4AE9D7C80016 /* Pods */,
+				0A5879CB3C7CBD9869CA8E6D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -161,6 +182,17 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		E7BF3A88FADB4AE9D7C80016 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7B9B944C6F83467AE21D33D6 /* Pods-TimeDecisionMaker.debug.xcconfig */,
+				0037337F3BB9B9B36FF8FEAD /* Pods-TimeDecisionMaker.release.xcconfig */,
+				02270B4D3198AC3EA2788E90 /* Pods-TimeDecisionMakerTests.debug.xcconfig */,
+				2C9BF1C3C1239B47CEBDF029 /* Pods-TimeDecisionMakerTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -168,9 +200,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 748F59BD2270681D00B88B7D /* Build configuration list for PBXNativeTarget "TimeDecisionMaker" */;
 			buildPhases = (
+				38BD92A7CF35F3D19B71D9A2 /* [CP] Check Pods Manifest.lock */,
 				748F599C2270681B00B88B7D /* Sources */,
 				748F599D2270681B00B88B7D /* Frameworks */,
 				748F599E2270681B00B88B7D /* Resources */,
+				60398C641E1553D00708E99E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -185,6 +219,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 748F59C02270681D00B88B7D /* Build configuration list for PBXNativeTarget "TimeDecisionMakerTests" */;
 			buildPhases = (
+				3F8CB5CE66FBBDE70A5E4232 /* [CP] Check Pods Manifest.lock */,
 				748F59B02270681D00B88B7D /* Sources */,
 				748F59B12270681D00B88B7D /* Frameworks */,
 				748F59B22270681D00B88B7D /* Resources */,
@@ -259,6 +294,63 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		38BD92A7CF35F3D19B71D9A2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TimeDecisionMaker-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3F8CB5CE66FBBDE70A5E4232 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TimeDecisionMakerTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		60398C641E1553D00708E99E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-TimeDecisionMaker/Pods-TimeDecisionMaker-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SBPickerSelector/SBPickerSelector.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBPickerSelector.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TimeDecisionMaker/Pods-TimeDecisionMaker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		748F599C2270681B00B88B7D /* Sources */ = {
@@ -435,15 +527,17 @@
 		};
 		748F59BE2270681D00B88B7D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7B9B944C6F83467AE21D33D6 /* Pods-TimeDecisionMaker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7BV7G443SR;
 				INFOPLIST_FILE = TimeDecisionMaker/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rd.test.TimeDecisionMaker;
+				PRODUCT_BUNDLE_IDENTIFIER = com.earine.TimeDecisionMaker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -452,15 +546,17 @@
 		};
 		748F59BF2270681D00B88B7D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0037337F3BB9B9B36FF8FEAD /* Pods-TimeDecisionMaker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7BV7G443SR;
 				INFOPLIST_FILE = TimeDecisionMaker/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rd.test.TimeDecisionMaker;
+				PRODUCT_BUNDLE_IDENTIFIER = com.earine.TimeDecisionMaker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -469,6 +565,7 @@
 		};
 		748F59C12270681D00B88B7D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 02270B4D3198AC3EA2788E90 /* Pods-TimeDecisionMakerTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -489,6 +586,7 @@
 		};
 		748F59C22270681D00B88B7D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2C9BF1C3C1239B47CEBDF029 /* Pods-TimeDecisionMakerTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";

@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TimeDecisionMaker/Service.swift"
-            timestampString = "579274036.895035"
+            timestampString = "579293291.581533"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
             landmarkName = "getElementByKey(element:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TimeDecisionMaker/Service.swift"
-            timestampString = "579274036.8967"
+            timestampString = "579293291.5817699"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
             landmarkName = "getDaysByMonth(month:year:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TimeDecisionMaker/Service.swift"
-            timestampString = "579274036.8976671"
+            timestampString = "579293291.581894"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
             landmarkName = "getDaysByMonth(month:year:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -74,135 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TimeDecisionMaker/ViewControllers/ViewController.swift"
-            timestampString = "579274036.898535"
+            timestampString = "579293291.582009"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "15"
-            endingLineNumber = "15"
-            landmarkName = "ViewController"
-            landmarkType = "3">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TimeDecisionMaker.ViewController.daysInMonth.getter : Swift.Array&lt;Foundation.Date&gt;"
-                  moduleName = "TimeDecisionMaker"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ml/Desktop/TimeDecisionMaker/TimeDecisionMaker/ViewControllers/ViewController.swift"
-                  timestampString = "579263433.097137"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "15"
-                  endingLineNumber = "15"
-                  offsetFromSymbolStart = "114">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TimeDecisionMaker.ViewController.daysInMonth.setter : Swift.Array&lt;Foundation.Date&gt;"
-                  moduleName = "TimeDecisionMaker"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ml/Desktop/TimeDecisionMaker/TimeDecisionMaker/ViewControllers/ViewController.swift"
-                  timestampString = "579263433.100499"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "15"
-                  endingLineNumber = "15"
-                  offsetFromSymbolStart = "128">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TimeDecisionMaker.ViewController.daysInMonth.modify : Swift.Array&lt;Foundation.Date&gt;"
-                  moduleName = "TimeDecisionMaker"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ml/Desktop/TimeDecisionMaker/TimeDecisionMaker/ViewControllers/ViewController.swift"
-                  timestampString = "579263433.103635"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "18">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TimeDecisionMaker.ViewController.daysInMonth.modify : Swift.Array&lt;Foundation.Date&gt; with unmangled suffix &quot;.resume.0&quot;"
-                  moduleName = "TimeDecisionMaker"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ml/Desktop/TimeDecisionMaker/TimeDecisionMaker/ViewControllers/ViewController.swift"
-                  timestampString = "579263433.1065969"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "15"
-                  endingLineNumber = "15"
-                  offsetFromSymbolStart = "4">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TimeDecisionMaker.ViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; TimeDecisionMaker.ViewController"
-                  moduleName = "TimeDecisionMaker"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ml/Desktop/TimeDecisionMaker/TimeDecisionMaker/ViewControllers/ViewController.swift"
-                  timestampString = "579263433.111608"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "15"
-                  endingLineNumber = "15"
-                  offsetFromSymbolStart = "515">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TimeDecisionMaker.ViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;TimeDecisionMaker.ViewController&gt;"
-                  moduleName = "TimeDecisionMaker"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ml/Desktop/TimeDecisionMaker/TimeDecisionMaker/ViewControllers/ViewController.swift"
-                  timestampString = "579263433.114783"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "15"
-                  endingLineNumber = "15"
-                  offsetFromSymbolStart = "440">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TimeDecisionMaker/ViewControllers/ViewController.swift"
-            timestampString = "579274036.899437"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
-            landmarkName = "calculateDatesWithEvents()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TimeDecisionMaker/ViewControllers/ViewController.swift"
-            timestampString = "579274036.899983"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
             landmarkName = "calculateDatesWithEvents()"
             landmarkType = "7">
          </BreakpointContent>
@@ -214,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TimeDecisionMaker/Service.swift"
-            timestampString = "579274036.90064"
+            timestampString = "579293291.582773"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
             landmarkName = "getDaysByMonth(month:year:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -230,7 +106,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TimeDecisionMaker/Service.swift"
-            timestampString = "579274036.901551"
+            timestampString = "579293291.582896"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "62"
@@ -246,7 +122,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TimeDecisionMaker/Service.swift"
-            timestampString = "579274036.902263"
+            timestampString = "579293291.5829951"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "69"
@@ -262,55 +138,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TimeDecisionMaker/Service.swift"
-            timestampString = "579274036.902972"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
-            landmarkName = "getEventsForSelectedMonth(eventsList:monthDates:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TimeDecisionMaker.Service.getEventsForSelectedMonth(eventsList: Swift.Array&lt;TimeDecisionMaker.Appointment&gt;, monthDates: Swift.Array&lt;Foundation.Date&gt;) -&gt; (Swift.Dictionary&lt;Foundation.Date, Swift.Array&lt;TimeDecisionMaker.Appointment&gt;&gt;, Swift.Array&lt;TimeDecisionMaker.Appointment&gt;)"
-                  moduleName = "TimeDecisionMaker"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ml/Desktop/TimeDecisionMaker/TimeDecisionMaker/Service.swift"
-                  timestampString = "579264326.944531"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "73"
-                  endingLineNumber = "73"
-                  offsetFromSymbolStart = "3634">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (TimeDecisionMaker.Appointment, TimeDecisionMaker.Appointment) -&gt; Swift.Bool in TimeDecisionMaker.Service.getEventsForSelectedMonth(eventsList: Swift.Array&lt;TimeDecisionMaker.Appointment&gt;, monthDates: Swift.Array&lt;Foundation.Date&gt;) -&gt; (Swift.Dictionary&lt;Foundation.Date, Swift.Array&lt;TimeDecisionMaker.Appointment&gt;&gt;, Swift.Array&lt;TimeDecisionMaker.Appointment&gt;)"
-                  moduleName = "TimeDecisionMaker"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ml/Desktop/TimeDecisionMaker/TimeDecisionMaker/Service.swift"
-                  timestampString = "579264326.9566211"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "73"
-                  endingLineNumber = "73"
-                  offsetFromSymbolStart = "255">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TimeDecisionMaker/Service.swift"
-            timestampString = "579274036.903661"
+            timestampString = "579293291.583088"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "54"
