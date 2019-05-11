@@ -24,9 +24,8 @@ class RDTimeDecisionMaker: NSObject {
                              duration:TimeInterval) -> [DateInterval] {
         let organizerFreeSlots = makeDateIntervalList(objects: service.fetchAppointment(resourceFile: organizerICS))
         let attendeeFreeSlots = makeDateIntervalList(objects: service.fetchAppointment(resourceFile: attendeeICS))
-        print(attendeeFreeSlots)
+        
         let suggestedAppointments = findTimeForAppointment(person1: organizerFreeSlots, person2: attendeeFreeSlots, duration: duration)
-        print(suggestedAppointments)
         if suggestedAppointments.isEmpty {
             return []
         } else {

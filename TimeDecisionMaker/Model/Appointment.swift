@@ -37,8 +37,30 @@ class Appointment : NSObject {
         self.dateInterval = DateInterval(start: dateStart, end: dateEnd)
     }
     
-    func isReadyToAdd() -> Bool {
+    public func isReadyToAdd() -> Bool {
         return !(summary.isEmpty || summary == "" || UID.isEmpty || UID == "" && status == Status.UNSET)
+    }
+    
+    public func getWeekDay(date: Date) -> String {
+        dateFormatter.dateFormat = "EE"
+        return dateFormatter.string(from: date)
+    }
+    
+    public func getDayFromDate(date: Date) -> String {
+        dateFormatter.dateFormat = "dd"
+        return dateFormatter.string(from: date)
+    }
+    
+    public func hoursValueFromDateToString(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "hh:mm a"
+        dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
+       
+        return dateFormatter.string(from: date)
+    }
+    
+    public func durarationToString(dateInterval: DateInterval) -> String {
+        return dateInterval.duration.format(using: [.hour, .minute]) ?? ""
     }
     
     public func typeFromString(value: String) -> Status {
@@ -62,7 +84,6 @@ class Appointment : NSObject {
     
     public func convertStringToDate(value: String, timezone: String) -> Date {
         dateFormatter.dateFormat = "yyyyMMdd'T'HHmmss'Z'"
-        
         if var date = dateFormatter.date(from: value) {
             return date.convertToTimeZone(initTimeZone:TimeZone(abbreviation: "UTC")!, timeZone: TimeZone(identifier: timezone)!)
         } else {
@@ -82,6 +103,16 @@ extension Date {
         return addingTimeInterval(delta)
     }
 }
+
+extension TimeInterval {
+    func format(using units: NSCalendar.Unit) -> String? {
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = units
+        formatter.unitsStyle = .abbreviated
+        formatter.zeroFormattingBehavior = .pad
+        
+        return formatter.string(from: self)
+    }}
 
 enum Status : String {
     

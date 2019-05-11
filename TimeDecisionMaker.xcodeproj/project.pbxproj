@@ -22,6 +22,8 @@
 		9C25D72D2284954300653284 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE4EEA12281F72C005212F4 /* Service.swift */; };
 		9C25D72E228495D900653284 /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE4EE9F2281F522005212F4 /* Appointment.swift */; };
 		9C25D72F2284971300653284 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748F59A52270681B00B88B7D /* ViewController.swift */; };
+		9C25D7312285C53F00653284 /* AppointmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C25D7302285C53F00653284 /* AppointmentTableViewCell.swift */; };
+		9C25D7322285C58600653284 /* AppointmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C25D7302285C53F00653284 /* AppointmentTableViewCell.swift */; };
 		9CE4EEA02281F523005212F4 /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE4EE9F2281F522005212F4 /* Appointment.swift */; };
 		9CE4EEA22281F72C005212F4 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE4EEA12281F72C005212F4 /* Service.swift */; };
 /* End PBXBuildFile section */
@@ -50,6 +52,7 @@
 		748F59C62270687C00B88B7D /* RDTimeDecisionMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RDTimeDecisionMaker.swift; sourceTree = "<group>"; };
 		748F59C922706C6600B88B7D /* A.ics */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = A.ics; sourceTree = "<group>"; };
 		748F59CD22706EB300B88B7D /* B.ics */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = B.ics; sourceTree = "<group>"; };
+		9C25D7302285C53F00653284 /* AppointmentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentTableViewCell.swift; sourceTree = "<group>"; };
 		9CE4EE9F2281F522005212F4 /* Appointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appointment.swift; sourceTree = "<group>"; };
 		9CE4EEA12281F72C005212F4 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -127,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				748F59A52270681B00B88B7D /* ViewController.swift */,
+				9C25D7302285C53F00653284 /* AppointmentTableViewCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -266,6 +270,7 @@
 				9CE4EEA22281F72C005212F4 /* Service.swift in Sources */,
 				748F59A42270681B00B88B7D /* AppDelegate.swift in Sources */,
 				9CE4EEA02281F523005212F4 /* Appointment.swift in Sources */,
+				9C25D7312285C53F00653284 /* AppointmentTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,6 +283,7 @@
 				748F59C82270687C00B88B7D /* RDTimeDecisionMaker.swift in Sources */,
 				9C25D72D2284954300653284 /* Service.swift in Sources */,
 				9C25D72E228495D900653284 /* Appointment.swift in Sources */,
+				9C25D7322285C58600653284 /* AppointmentTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
