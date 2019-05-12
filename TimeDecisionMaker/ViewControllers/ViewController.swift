@@ -19,24 +19,23 @@ class ViewController: UIViewController {
     
     private var initialMonth : String = Date().monthAsString()
     private var initialYear : Int = Date().yearAsString()
+
+    public var selectedPerson : Person?
     
     @IBOutlet weak var eventsTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         calculateDatesWithEvents()
-        
     }
     
     func calculateDatesWithEvents() {
         self.navigationItem.title = initialMonth
         print(monthes![4])
         daysInMonth = service.getDaysByMonth(month: initialMonth, year: initialYear)
-        let events = service.fetchAppointment(resourceFile: "A")
+        let events = service.fetchAppointment(resourceFile: selectedPerson?.ICSPath ?? "A")
         dictionary = service.getEventsForSelectedMonth(eventsList: events, monthDates: daysInMonth).0
         daysInMonth.remove(at: daysInMonth.count - 1)
-        
-        
     }
     
     
@@ -62,6 +61,7 @@ class ViewController: UIViewController {
 
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource{
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return daysInMonth.count
     }
@@ -105,6 +105,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
     func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         return service.getDatesFromMonth(month: daysInMonth)
     }
+    
+    
     
 }
 

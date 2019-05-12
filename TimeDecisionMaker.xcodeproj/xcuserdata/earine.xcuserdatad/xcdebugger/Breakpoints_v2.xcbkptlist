@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TimeDecisionMaker/RDTimeDecisionMaker.swift"
-            timestampString = "579274036.896529"
+            timestampString = "579361485.832093"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "30"
@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TimeDecisionMaker/ViewControllers/ViewController.swift"
-            timestampString = "579293291.582009"
+            timestampString = "579366199.453739"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
             landmarkName = "calculateDatesWithEvents()"
             landmarkType = "7">
          </BreakpointContent>

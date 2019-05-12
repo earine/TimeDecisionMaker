@@ -60,7 +60,12 @@ class Appointment : NSObject {
     }
     
     public func durarationToString(dateInterval: DateInterval) -> String {
+        if dateInterval.duration.format(using: [.minute]) == "0m"{
+            print("true")
+            return dateInterval.duration.format(using: [.hour]) ?? ""
+        } else {
         return dateInterval.duration.format(using: [.hour, .minute]) ?? ""
+        }
     }
     
     public func typeFromString(value: String) -> Status {
