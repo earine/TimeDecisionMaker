@@ -89,7 +89,7 @@ class Appointment : NSObject {
     
     public func convertStringToDate(value: String, timezone: String) -> Date {
         dateFormatter.dateFormat = "yyyyMMdd'T'HHmmss'Z'"
-        if var date = dateFormatter.date(from: value) {
+        if let date = dateFormatter.date(from: value) {
             return date.convertToTimeZone(initTimeZone:TimeZone(abbreviation: "UTC")!, timeZone: TimeZone(identifier: timezone)!)
         } else {
             return Date()
@@ -102,40 +102,11 @@ class Appointment : NSObject {
     }
 }
 
-extension Date {
-    func convertToTimeZone(initTimeZone: TimeZone, timeZone: TimeZone) -> Date {
-        let delta = TimeInterval(timeZone.secondsFromGMT() - initTimeZone.secondsFromGMT())
-        return addingTimeInterval(delta)
-    }
-    func monthAsString() -> String {
-        let df = DateFormatter()
-        df.setLocalizedDateFormatFromTemplate("MMM")
-        return df.string(from: self)
-    }
-    
-    func yearAsString() -> Int {
-        let df = DateFormatter()
-        df.setLocalizedDateFormatFromTemplate("yyyy")
-        return Int(df.string(from: self))!
-    }
-}
-
-
-extension TimeInterval {
-    func format(using units: NSCalendar.Unit) -> String? {
-        let formatter = DateComponentsFormatter()
-        formatter.allowedUnits = units
-        formatter.unitsStyle = .abbreviated
-        formatter.zeroFormattingBehavior = .pad
-        
-        return formatter.string(from: self)
-    }}
-
 enum Status : String {
     
-    case TENTATIVE = "TENTATIVE"
-    case CONFIRMED = "CONFIRMED"
-    case CANCELLED = "CANCELLED"
+    case TENTATIVE = "Tentative"
+    case CONFIRMED = "Confirmed"
+    case CANCELLED = "Cancelled"
     case UNSET
     
     var description: String {

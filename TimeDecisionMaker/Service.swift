@@ -158,37 +158,3 @@ class Service: NSObject {
 }
 
 
-extension String {
-    func matchingStrings(regex: String) -> [[String]] {
-        guard let regex = try? NSRegularExpression(pattern: regex, options: []) else { return [] }
-        let nsString = self as NSString
-        let results  = regex.matches(in: self, options: [], range: NSMakeRange(0, nsString.length))
-        return results.map { result in
-            (0..<result.numberOfRanges).map {
-                result.range(at: $0).location != NSNotFound
-                    ? nsString.substring(with: result.range(at: $0))
-                    : ""
-            }
-        }
-    }
-}
-
-extension UIView {
-    
-    /// The ratio (from 0.0 to 1.0, inclusive) of the view's corner radius
-    /// to its width. For example, a 50% radius would be specified with
-    /// `cornerRadiusRatio = 0.5`.
-    public var cornerRadiusRatio: CGFloat {
-        get {
-            return layer.cornerRadius / frame.width
-        }
-        
-        set {
-            // Make sure that it's between 0.0 and 1.0. If not, restrict it
-            // to that range.
-            let normalizedRatio = max(0.0, min(1.0, newValue))
-            layer.cornerRadius = frame.width * normalizedRatio
-        }
-    }
-    
-}

@@ -42,7 +42,6 @@ extension PeopleViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
         let cell = tableView.dequeueReusableCell(withIdentifier: "peopleCell", for: indexPath) as! PeopleTableViewCell
         cell.personNameLabel.text = people[indexPath.row].name
         return cell
@@ -51,7 +50,6 @@ extension PeopleViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedPerson = people[indexPath.row]
         performSegue(withIdentifier: "goToPersonApointments", sender: nil)
-        
     }
     
     
