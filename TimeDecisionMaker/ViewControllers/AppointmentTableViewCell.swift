@@ -10,6 +10,7 @@ import UIKit
 class AppointmentTableViewCell: UITableViewCell {
 
     
+    @IBOutlet weak var lineImage: UIImageView!
     @IBOutlet weak var eventDateLabel: UILabel!
     @IBOutlet weak var dateStarterImageView: UIImageView!
     @IBOutlet weak var summaryLabel: UILabel!
@@ -45,6 +46,12 @@ class AppointmentTableViewCell: UITableViewCell {
         durationLabel.isHidden = false
     }
     
+    public func UIforTodayView() {
+        dateStarterImageView.backgroundColor = UIColor(rgb: 0x555273)
+        eventDateLabel.textColor = UIColor(rgb: 0x555273)
+        
+    }
+    
     public func UIforFirstRow(dateValue: String, weekdayValue: String) {
         dateStarterImageView.isHidden = false
         eventDateLabel.isHidden = false
@@ -58,9 +65,28 @@ class AppointmentTableViewCell: UITableViewCell {
         eventDateLabel.isHidden = true
         eventWeekdayLabel.isHidden = true
     }
+    
+    public func makeRegularCellStyle() {
+        backgroundColor = .white
+        dateStarterImageView.backgroundColor = UIColor(rgb: 0x65799B)
+        eventDateLabel.textColor = UIColor(rgb: 0x65799B)
+    }
+    
     private func updateUI() {
         dateStarterImageView.cornerRadiusRatio = 0.5
+        makeRegularCellStyle()
     }
 
 
+}
+
+extension UIColor {
+    convenience init(rgb: UInt) {
+        self.init(
+            red: CGFloat((rgb & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgb & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgb & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
+    }
 }
