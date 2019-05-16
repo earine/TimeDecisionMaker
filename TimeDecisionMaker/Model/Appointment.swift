@@ -11,12 +11,18 @@ class Appointment : NSObject {
     
     public var summary : String
     public var created : Date!
-    public var UID : String
-    public var descriptionAp : String?
     public var status : Status!
+    public var descriptionAp : String!
+    public var UID : String
     public var dateInterval : DateInterval!
     public var dateStart : Date!
     public var dateEnd : Date!
+    public var stamp : Date!
+    public var lastModified : Date!
+    public var location : String
+    public var sequence : Int!
+    public var transparency : Transparency!
+    
     private let dateFormatter = DateFormatter()
     
     override init() {
@@ -24,9 +30,12 @@ class Appointment : NSObject {
         self.UID = ""
         self.created = Date()
         self.status = Status.UNSET
+        self.descriptionAp = ""
+        self.location = ""
+        self.transparency = Transparency.UNSET
     }
     
-    public init(summary: String, created: Date, UID: String, status: Status, description: String, dateStart: Date, dateEnd: Date) {
+    public init(summary: String, created: Date, UID: String, status: Status, description: String, dateStart: Date, dateEnd: Date, lastModified: Date, location: String, sequence: Int, transparency : Transparency, stamp: Date) {
         self.summary = summary
         self.UID = UID
         self.status = status
@@ -35,10 +44,15 @@ class Appointment : NSObject {
         self.dateStart = dateStart
         self.dateEnd = dateEnd
         self.dateInterval = DateInterval(start: dateStart, end: dateEnd)
+        self.lastModified = lastModified
+        self.location = location
+        self.sequence = sequence
+        self.transparency = transparency
+        self.stamp = stamp
     }
     
     public func isReadyToAdd() -> Bool {
-        return !(summary.isEmpty || summary == "" || UID.isEmpty || UID == "" && status == Status.UNSET)
+        return !(summary.isEmpty || summary == "" || UID.isEmpty || UID == "" || status == Status.UNSET || sequence == nil || transparency == Transparency.UNSET)
     }
     
     public func getWeekDay(date: Date) -> String {
@@ -68,7 +82,7 @@ class Appointment : NSObject {
         }
     }
     
-    public func typeFromString(value: String) -> Status {
+    public func statusTypeFromString(value: String) -> Status {
         switch value {
         case "TENTATIVE":
             return Status.TENTATIVE
@@ -81,10 +95,23 @@ class Appointment : NSObject {
         }
     }
     
+    public func transparencyTypeFromString(value: String) -> Transparency {
+        switch value {
+        case "OPAQUE":
+            return Transparency.OPAQUE
+        case "TRANSPARENT":
+            return Transparency.TRANSPARENT
+        default:
+            return Transparency.TRANSPARENT
+        }
+    }
+    
+    
     public func makeModelEmptyForChecking() {
         self.summary = ""
         self.UID = ""
         self.status = Status.UNSET
+        self.transparency = Transparency.UNSET
     }
     
     public func convertStringToDate(value: String, timezone: String) -> Date {
@@ -114,3 +141,13 @@ enum Status : String {
     }
 }
 
+/// Events that consume actual time for the individual or resource associated with the calendar SHOULD be recorded as OPAQUE, allowing them to be detected by free-busy time searches. Other events, which do not take up the individual's (or resource's) time SHOULD be recorded as TRANSPARENT, making them invisible to free-busy time searches.
+enum Transparency : String {
+    case OPAQUE = "Opaque"
+    case TRANSPARENT = "Transparent"
+    case UNSET
+    
+    var description: String {
+        return self.rawValue
+    }
+}
