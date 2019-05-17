@@ -20,22 +20,22 @@ class ViewController: UIViewController {
     private var initialMonth : String = Date().monthAsString()
     private var initialYear : Int = Date().yearAsString()
     
+    public var selectedPerson : Person?
+    private var selectedEvent : Appointment?
+    
     @IBOutlet weak var eventsTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         calculateDatesWithEvents()
-        
     }
     
-    func calculateDatesWithEvents() {
+    private func calculateDatesWithEvents() {
         self.navigationItem.title = initialMonth
-        print(monthes![4])
         daysInMonth = service.getDaysByMonth(month: initialMonth, year: initialYear)
-        let events = service.fetchAppointment(resourceFile: "A")
-        dictionary = service.getEventsForSelectedMonth(eventsList: events, monthDates: daysInMonth).0
+        let events = service.fetchAppointment(resourceFile: selectedPerson?.ICSPath ?? "A")
+        dictionary = service.getEventsForSelectedMonth(eventsList: events, monthDates: daysInMonth)
         daysInMonth.remove(at: daysInMonth.count - 1)
-        
         
     }
     
@@ -45,7 +45,7 @@ class ViewController: UIViewController {
         dateFormatter.dateFormat = "yyyy-MM"
         let date = dateFormatter.date(from: "2019-01")!
         
-        SBPickerSwiftSelector(mode: SBPickerSwiftSelector.Mode.text, data: [monthes, ["2019", "2020"]], defaultDate: date).cancel {
+        SBPickerSwiftSelector(mode: SBPickerSwiftSelector.Mode.text, data: [monthes!, ["2019", "2020"]], defaultDate: date).cancel {
             print("cancel")
             }.set { values in
                 if let values = values as? [String] {
@@ -55,6 +55,16 @@ class ViewController: UIViewController {
                     self.eventsTableView.reloadData()
                 }
             }.present(into: self)
+       eventsTableView.setContentOffset(CGPoint.zero, animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "goToSingleView") {
+            let vc = segue.destination as! SingleAppointmentViewController
+            
+            vc.selectedEvent = selectedEvent!
+            vc.selectedPerson = selectedPerson
+        }
     }
     
     
@@ -62,11 +72,12 @@ class ViewController: UIViewController {
 
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource{
-    func numberOfSections(in tableView: UITableView) -> Int {
+    
+    internal func numberOfSections(in tableView: UITableView) -> Int {
         return daysInMonth.count
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    internal func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let key = dictionary[daysInMonth[section]] {
             return key.count
         } else {
@@ -74,14 +85,14 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
         }
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "appointmentCell", for: indexPath) as! AppointmentTableViewCell
         
         let refIndex = indexPath.section
         let referenceObject = dictionary[daysInMonth[refIndex]]
         let appointment = referenceObject![indexPath.row]
-        
+        cell.makeRegularCellStyle()
         if appointment.summary.isEmpty {
             cell.UIforDayWithoutEvents()
             cell.UIforFirstRow(dateValue: appointment.getDayFromDate(date: daysInMonth[refIndex]), weekdayValue: appointment.getWeekDay(date: daysInMonth[refIndex]))
@@ -99,12 +110,35 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
             }
         }
         
+        if indexPath.section == ((Int(appointment.getDayFromDate(date: Date())) ?? 1)-1) && initialMonth == Date().monthAsString() {
+            cell.UIforTodayView()
+            cell.backgroundColor = UIColor(rgb: 0xe2eff1)
+        }
+        
         return cell
     }
     
-    func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+    internal func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         return service.getDatesFromMonth(month: daysInMonth)
     }
+    
+    internal func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let refIndex = indexPath.section
+        let referenceObject = dictionary[daysInMonth[refIndex]]
+        let appointment = referenceObject![indexPath.row]
+        if appointment.dateInterval != nil {
+            selectedEvent = appointment
+            performSegue(withIdentifier: "goToSingleView", sender: nil)
+        } else {
+            let alert: UIAlertController = UIAlertController(title: "Oops!", message: "You have no events for this date :(", preferredStyle: .alert)
+            
+            let okAction: UIAlertAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
+            alert.addAction(okAction)
+            
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
     
 }
 

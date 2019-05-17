@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TimeDecisionMaker/ViewControllers/EditViewController.swift"
+            timestampString = "579816881.5553679"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "EditViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TimeDecisionMaker.EditViewController.listener.getter : Swift.Optional&lt;InputMask.MaskedTextFieldDelegate&gt;"
+                  moduleName = "TimeDecisionMaker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ml/Desktop/TimeDecisionMaker/TimeDecisionMaker/ViewControllers/EditViewController.swift"
+                  timestampString = "579812124.46593"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "86">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TimeDecisionMaker.EditViewController.listener.setter : Swift.Optional&lt;InputMask.MaskedTextFieldDelegate&gt;"
+                  moduleName = "TimeDecisionMaker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ml/Desktop/TimeDecisionMaker/TimeDecisionMaker/ViewControllers/EditViewController.swift"
+                  timestampString = "579812124.472064"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "106">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TimeDecisionMaker.EditViewController.listener.modify : Swift.Optional&lt;InputMask.MaskedTextFieldDelegate&gt;"
+                  moduleName = "TimeDecisionMaker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ml/Desktop/TimeDecisionMaker/TimeDecisionMaker/ViewControllers/EditViewController.swift"
+                  timestampString = "579812124.4759181"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "69">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TimeDecisionMaker.EditViewController.listener.modify : Swift.Optional&lt;InputMask.MaskedTextFieldDelegate&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "TimeDecisionMaker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ml/Desktop/TimeDecisionMaker/TimeDecisionMaker/ViewControllers/EditViewController.swift"
+                  timestampString = "579812124.4807889"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "72">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TimeDecisionMaker.EditViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; TimeDecisionMaker.EditViewController"
+                  moduleName = "TimeDecisionMaker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ml/Desktop/TimeDecisionMaker/TimeDecisionMaker/ViewControllers/EditViewController.swift"
+                  timestampString = "579812124.486205"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "577">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TimeDecisionMaker.EditViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;TimeDecisionMaker.EditViewController&gt;"
+                  moduleName = "TimeDecisionMaker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ml/Desktop/TimeDecisionMaker/TimeDecisionMaker/ViewControllers/EditViewController.swift"
+                  timestampString = "579812124.490024"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "502">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

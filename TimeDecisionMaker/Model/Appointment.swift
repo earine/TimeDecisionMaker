@@ -11,12 +11,18 @@ class Appointment : NSObject {
     
     public var summary : String
     public var created : Date!
-    public var UID : String
-    public var descriptionAp : String?
     public var status : Status!
+    public var descriptionAp : String!
+    public var UID : String
     public var dateInterval : DateInterval!
     public var dateStart : Date!
     public var dateEnd : Date!
+    public var stamp : Date!
+    public var lastModified : Date!
+    public var location : String
+    public var sequence : Int!
+    public var transparency : Transparency!
+    
     private let dateFormatter = DateFormatter()
     
     override init() {
@@ -24,9 +30,12 @@ class Appointment : NSObject {
         self.UID = ""
         self.created = Date()
         self.status = Status.UNSET
+        self.descriptionAp = ""
+        self.location = ""
+        self.transparency = Transparency.UNSET
     }
     
-    public init(summary: String, created: Date, UID: String, status: Status, description: String, dateStart: Date, dateEnd: Date) {
+    public init(summary: String, created: Date, UID: String, status: Status, description: String, dateStart: Date, dateEnd: Date, lastModified: Date, location: String, sequence: Int, transparency : Transparency, stamp: Date) {
         self.summary = summary
         self.UID = UID
         self.status = status
@@ -35,10 +44,15 @@ class Appointment : NSObject {
         self.dateStart = dateStart
         self.dateEnd = dateEnd
         self.dateInterval = DateInterval(start: dateStart, end: dateEnd)
+        self.lastModified = lastModified
+        self.location = location
+        self.sequence = sequence
+        self.transparency = transparency
+        self.stamp = stamp
     }
     
     public func isReadyToAdd() -> Bool {
-        return !(summary.isEmpty || summary == "" || UID.isEmpty || UID == "" && status == Status.UNSET)
+        return !(summary.isEmpty || summary == "" || UID.isEmpty || UID == "" || status == Status.UNSET || sequence == nil || transparency == Transparency.UNSET)
     }
     
     public func getWeekDay(date: Date) -> String {
@@ -60,10 +74,15 @@ class Appointment : NSObject {
     }
     
     public func durarationToString(dateInterval: DateInterval) -> String {
+        if dateInterval.duration.format(using: [.minute]) == "0m"{
+            print("true")
+            return dateInterval.duration.format(using: [.hour]) ?? ""
+        } else {
         return dateInterval.duration.format(using: [.hour, .minute]) ?? ""
+        }
     }
     
-    public func typeFromString(value: String) -> Status {
+    public func statusTypeFromString(value: String) -> Status {
         switch value {
         case "TENTATIVE":
             return Status.TENTATIVE
@@ -76,15 +95,28 @@ class Appointment : NSObject {
         }
     }
     
+    public func transparencyTypeFromString(value: String) -> Transparency {
+        switch value {
+        case "OPAQUE":
+            return Transparency.OPAQUE
+        case "TRANSPARENT":
+            return Transparency.TRANSPARENT
+        default:
+            return Transparency.TRANSPARENT
+        }
+    }
+    
+    
     public func makeModelEmptyForChecking() {
         self.summary = ""
         self.UID = ""
         self.status = Status.UNSET
+        self.transparency = Transparency.UNSET
     }
     
-    public func convertStringToDate(value: String, timezone: String) -> Date {
-        dateFormatter.dateFormat = "yyyyMMdd'T'HHmmss'Z'"
-        if var date = dateFormatter.date(from: value) {
+    public func convertStringToDate(value: String, timezone: String, format: String) -> Date {
+        dateFormatter.dateFormat = format
+        if let date = dateFormatter.date(from: value) {
             return date.convertToTimeZone(initTimeZone:TimeZone(abbreviation: "UTC")!, timeZone: TimeZone(identifier: timezone)!)
         } else {
             return Date()
@@ -95,36 +127,9 @@ class Appointment : NSObject {
         dateFormatter.dateFormat = "yyyy.MM.dd HH:mm"
         return dateFormatter.string(from: date)
     }
-}
-
-extension Date {
-    func convertToTimeZone(initTimeZone: TimeZone, timeZone: TimeZone) -> Date {
-        let delta = TimeInterval(timeZone.secondsFromGMT() - initTimeZone.secondsFromGMT())
-        return addingTimeInterval(delta)
-    }
-    func monthAsString() -> String {
-        let df = DateFormatter()
-        df.setLocalizedDateFormatFromTemplate("MMM")
-        return df.string(from: self)
-    }
     
-    func yearAsString() -> Int {
-        let df = DateFormatter()
-        df.setLocalizedDateFormatFromTemplate("yyyy")
-        return Int(df.string(from: self))!
-    }
+   
 }
-
-
-extension TimeInterval {
-    func format(using units: NSCalendar.Unit) -> String? {
-        let formatter = DateComponentsFormatter()
-        formatter.allowedUnits = units
-        formatter.unitsStyle = .abbreviated
-        formatter.zeroFormattingBehavior = .pad
-        
-        return formatter.string(from: self)
-    }}
 
 enum Status : String {
     
@@ -138,3 +143,13 @@ enum Status : String {
     }
 }
 
+/// Events that consume actual time for the individual or resource associated with the calendar SHOULD be recorded as OPAQUE, allowing them to be detected by free-busy time searches. Other events, which do not take up the individual's (or resource's) time SHOULD be recorded as TRANSPARENT, making them invisible to free-busy time searches.
+enum Transparency : String {
+    case OPAQUE = "OPAQUE"
+    case TRANSPARENT = "TRANSPARENT"
+    case UNSET
+    
+    var description: String {
+        return self.rawValue
+    }
+}
