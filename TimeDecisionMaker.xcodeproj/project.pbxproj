@@ -41,6 +41,8 @@
 		9C3E2B92228AC3A800D57F95 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3E2B90228AC3A800D57F95 /* UIViewExtension.swift */; };
 		9CE4EEA02281F523005212F4 /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE4EE9F2281F522005212F4 /* Appointment.swift */; };
 		9CE4EEA22281F72C005212F4 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE4EEA12281F72C005212F4 /* Service.swift */; };
+		9CF9408D228C788700CE8CA6 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF9408C228C788700CE8CA6 /* EditViewController.swift */; };
+		9CF9408E228C788700CE8CA6 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF9408C228C788700CE8CA6 /* EditViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +85,7 @@
 		9C3E2B90228AC3A800D57F95 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		9CE4EE9F2281F522005212F4 /* Appointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appointment.swift; sourceTree = "<group>"; };
 		9CE4EEA12281F72C005212F4 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		9CF9408C228C788700CE8CA6 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +177,7 @@
 				9C25D7362288576300653284 /* PeopleViewController.swift */,
 				748F59A52270681B00B88B7D /* ViewController.swift */,
 				9C25D73B22895E7000653284 /* SingleAppointmentViewController.swift */,
+				9CF9408C228C788700CE8CA6 /* EditViewController.swift */,
 				9C25D7302285C53F00653284 /* AppointmentTableViewCell.swift */,
 			);
 			path = ViewControllers;
@@ -398,6 +402,7 @@
 				748F59A62270681B00B88B7D /* ViewController.swift in Sources */,
 				9C25D73C22895E7000653284 /* SingleAppointmentViewController.swift in Sources */,
 				9CE4EEA22281F72C005212F4 /* Service.swift in Sources */,
+				9CF9408D228C788700CE8CA6 /* EditViewController.swift in Sources */,
 				748F59A42270681B00B88B7D /* AppDelegate.swift in Sources */,
 				9CE4EEA02281F523005212F4 /* Appointment.swift in Sources */,
 				9C3E2B8C228AC38500D57F95 /* StringExtension.swift in Sources */,
@@ -412,6 +417,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CF9408E228C788700CE8CA6 /* EditViewController.swift in Sources */,
 				9C25D73D22895E7E00653284 /* SingleAppointmentViewController.swift in Sources */,
 				9C3E2B8E228AC38E00D57F95 /* TimeIntervalExtension.swift in Sources */,
 				9C25D72F2284971300653284 /* ViewController.swift in Sources */,

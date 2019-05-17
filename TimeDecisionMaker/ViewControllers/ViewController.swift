@@ -34,7 +34,7 @@ class ViewController: UIViewController {
         self.navigationItem.title = initialMonth
         daysInMonth = service.getDaysByMonth(month: initialMonth, year: initialYear)
         let events = service.fetchAppointment(resourceFile: selectedPerson?.ICSPath ?? "A")
-        dictionary = service.getEventsForSelectedMonth(eventsList: events, monthDates: daysInMonth).0
+        dictionary = service.getEventsForSelectedMonth(eventsList: events, monthDates: daysInMonth)
         daysInMonth.remove(at: daysInMonth.count - 1)
         
     }
@@ -63,6 +63,7 @@ class ViewController: UIViewController {
             let vc = segue.destination as! SingleAppointmentViewController
             
             vc.selectedEvent = selectedEvent!
+            vc.selectedPerson = selectedPerson
         }
     }
     
