@@ -10,6 +10,7 @@ import UIKit
 class EditViewController: UIViewController {
     
     public var selectedEvent = Appointment()
+    public var selectedPerson: Person?
     
     private var formatter = DateFormatter()
     private let datePicker = UIDatePicker()
@@ -25,7 +26,7 @@ class EditViewController: UIViewController {
     
     private func updateUI() {
         formatter.dateFormat = "dd/MM/yyyy HH:mm"
-        
+        formatter.timeZone = TimeZone(abbreviation: "UTC")
         dateStartTextfield.text = formatter.string(from: selectedEvent.dateInterval.start)
         dateEndTextfield.text = formatter.string(from: selectedEvent.dateInterval.end)
         
@@ -36,7 +37,24 @@ class EditViewController: UIViewController {
     
     
     @IBAction func saveButton(_ sender: Any) {
-        Service().saveEditedObjectToICSFile(object: selectedEvent, resourceFile: "A")
+        if Service().dateViladation(startDate: Appointment().convertStringToDate(value: dateStartTextfield.text!, timezone: "Europe/Kiev", format: "dd/MM/yyyy HH:mm"), endDate: Appointment().convertStringToDate(value: dateEndTextfield.text!, timezone: "Europe/Kiev", format: "dd/MM/yyyy HH:mm")) {
+            selectedEvent.dateInterval.start = selectedEvent.convertStringToDate(value: dateStartTextfield.text!, timezone: "Europe/Kiev", format: "dd/MM/yyyy HH:mm")
+            selectedEvent.dateInterval.end = selectedEvent.convertStringToDate(value: dateEndTextfield.text!, timezone: "Europe/Kiev", format: "dd/MM/yyyy HH:mm")
+            if Service().saveEditedObjectToICSFile(object: selectedEvent, resourceFile: selectedPerson?.ICSPath ?? "A") {
+            } else {
+                let alert: UIAlertController = UIAlertController(title: "Error!", message: "File cannot be edited :(", preferredStyle: .alert)
+                let okAction: UIAlertAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
+                alert.addAction(okAction)
+                
+                self.present(alert, animated: true, completion: nil)
+            }
+        } else {
+            let alert: UIAlertController = UIAlertController(title: "Error!", message: "Event's start date cannot be later than  event's end date!", preferredStyle: .alert)
+            let okAction: UIAlertAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
+            alert.addAction(okAction)
+            
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     
@@ -62,35 +80,15 @@ class EditViewController: UIViewController {
         let formatter = DateFormatter()
         formatter.dateFormat = "dd/MM/yyyy HH:mm"
         
-        if datePicker.date < selectedEvent.dateInterval.end {
-            selectedEvent.dateInterval.start = datePicker.date
-            dateStartTextfield.text = formatter.string(from: datePicker.date)
-        } else {
-            let alert: UIAlertController = UIAlertController(title: "Error!", message: "Event's start date cannot be later than  event's end date!", preferredStyle: .alert)
-            
-            let okAction: UIAlertAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
-            alert.addAction(okAction)
-            
-            self.present(alert, animated: true, completion: nil)
-        }
+        dateStartTextfield.text = formatter.string(from: datePicker.date)
+        
         self.view.endEditing(true)
     }
     
     @objc func doneEndDatePicker(){
         let formatter = DateFormatter()
         formatter.dateFormat = "dd/MM/yyyy HH:mm"
-        
-        if datePicker.date > selectedEvent.dateInterval.start {
-            selectedEvent.dateInterval.end = datePicker.date
-            dateEndTextfield.text = formatter.string(from: datePicker.date)
-        } else {
-            let alert: UIAlertController = UIAlertController(title: "Error!", message: "Event's end date cannot be earlier than  event's start date!", preferredStyle: .alert)
-            
-            let okAction: UIAlertAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
-            alert.addAction(okAction)
-            
-            self.present(alert, animated: true, completion: nil)
-        }
+        dateEndTextfield.text = formatter.string(from: datePicker.date)
         self.view.endEditing(true)
     }
     

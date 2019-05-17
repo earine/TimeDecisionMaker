@@ -11,7 +11,7 @@ class Person: NSObject {
     
     public var name : String = ""
     public var ICSPath : String = ""
-  
+    
     
     init(name: String, ICSPath: String) {
         self.name = name

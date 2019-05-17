@@ -63,6 +63,7 @@ class ViewController: UIViewController {
             let vc = segue.destination as! SingleAppointmentViewController
             
             vc.selectedEvent = selectedEvent!
+            vc.selectedPerson = selectedPerson
         }
     }
     

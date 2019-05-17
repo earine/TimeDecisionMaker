@@ -114,8 +114,8 @@ class Appointment : NSObject {
         self.transparency = Transparency.UNSET
     }
     
-    public func convertStringToDate(value: String, timezone: String) -> Date {
-        dateFormatter.dateFormat = "yyyyMMdd'T'HHmmss'Z'"
+    public func convertStringToDate(value: String, timezone: String, format: String) -> Date {
+        dateFormatter.dateFormat = format
         if let date = dateFormatter.date(from: value) {
             return date.convertToTimeZone(initTimeZone:TimeZone(abbreviation: "UTC")!, timeZone: TimeZone(identifier: timezone)!)
         } else {
@@ -127,13 +127,15 @@ class Appointment : NSObject {
         dateFormatter.dateFormat = "yyyy.MM.dd HH:mm"
         return dateFormatter.string(from: date)
     }
+    
+   
 }
 
 enum Status : String {
     
-    case TENTATIVE = "Tentative"
-    case CONFIRMED = "Confirmed"
-    case CANCELLED = "Cancelled"
+    case TENTATIVE = "TENTATIVE"
+    case CONFIRMED = "CONFIRMED"
+    case CANCELLED = "CANCELLED"
     case UNSET
     
     var description: String {
@@ -143,8 +145,8 @@ enum Status : String {
 
 /// Events that consume actual time for the individual or resource associated with the calendar SHOULD be recorded as OPAQUE, allowing them to be detected by free-busy time searches. Other events, which do not take up the individual's (or resource's) time SHOULD be recorded as TRANSPARENT, making them invisible to free-busy time searches.
 enum Transparency : String {
-    case OPAQUE = "Opaque"
-    case TRANSPARENT = "Transparent"
+    case OPAQUE = "OPAQUE"
+    case TRANSPARENT = "TRANSPARENT"
     case UNSET
     
     var description: String {

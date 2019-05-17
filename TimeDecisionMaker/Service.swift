@@ -12,7 +12,7 @@ class Service: NSObject {
     private var fileKeys = ["SUMMARY", "CREATED", "STATUS", "DESCRIPTION", "UID", "DTSTART", "DTEND", "LAST-MODIFIED", "LOCATION", "SEQUENCE", "TRANSP", "DTSTAMP"]
     private var timezone: String!
     var appointments = [Appointment]()
-     private let formatter = DateFormatter()
+    private let formatter = DateFormatter()
     
     /// Method for reading .ics file and fetching data from it
     ///
@@ -56,10 +56,18 @@ class Service: NSObject {
         return appointments
     }
     
+    /// Method to perform saving data to .ics file
+    ///
+    /// - Parameters:
+    ///   - object: edited appointment to save
+    ///   - resourceFile: name of .ics file to update
+    /// - Returns: return true if saved successfuly, false — if there is an error
     public func saveEditedObjectToICSFile(object: Appointment, resourceFile: String) -> Bool{
         var serviceAppointment = Appointment()
         var newStrings = [String]()
         formatter.dateFormat = "yyyyMMdd'T'HHmmss'Z'"
+        formatter.timeZone = TimeZone(abbreviation: "UTC")
+        
         guard let path = Bundle.main.path(forResource: resourceFile, ofType: "ics") else {
             print("Failed to load file from app bundle")
             return false
@@ -82,13 +90,11 @@ class Service: NSObject {
                     newStrings.append("LAST-MODIFIED:\(formatter.string(from: object.lastModified))")
                     newStrings.append("LOCATION:\(object.location)")
                     newStrings.append("SEQUENCE:\(object.sequence ?? 0)")
-                    newStrings.append("STATUS:\(String(describing: object.status))")
+                    newStrings.append("STATUS:\(object.status.description)")
                     newStrings.append("SUMMARY:\(object.summary)")
-                    newStrings.append("TRANSP:\(String(describing: object.transparency))")
+                    newStrings.append("TRANSP:\(object.transparency.description)")
                     state = false
-                }
-                
-                if !state && myStrings[i] == "END:VEVENT" {
+                } else if !state && myStrings[i] == "END:VEVENT" {
                     state = true
                 }
                 
@@ -96,10 +102,19 @@ class Service: NSObject {
                     newStrings.append(myStrings[i])
                 }
             }
+            
+            let joined = newStrings.joined(separator: ("\n"))
+            do {
+                try joined.write(toFile: path, atomically: true, encoding: String.Encoding.utf8)
+            } catch {
+                // handle error
+            }
+
         } catch {
             print("Failed to read text")
+            return false
         }
-        print(newStrings)
+        
         return true
     }
     
@@ -178,7 +193,7 @@ class Service: NSObject {
         case fileKeys[0]:
             thisAppointment.summary = keyValue
         case fileKeys[1]:
-            thisAppointment.created = thisAppointment.convertStringToDate(value: keyValue, timezone: timezone)
+            thisAppointment.created = thisAppointment.convertStringToDate(value: keyValue, timezone: timezone, format: "yyyyMMdd'T'HHmmss'Z'")
         case fileKeys[2]:
             thisAppointment.status = thisAppointment.statusTypeFromString(value: keyValue)
         case fileKeys[3]:
@@ -186,19 +201,19 @@ class Service: NSObject {
         case fileKeys[4]:
             thisAppointment.UID = keyValue
         case fileKeys[5]:
-            thisAppointment.dateStart = thisAppointment.convertStringToDate(value: keyValue, timezone: timezone)
+            thisAppointment.dateStart = thisAppointment.convertStringToDate(value: keyValue, timezone: timezone, format: "yyyyMMdd'T'HHmmss'Z'")
         case fileKeys[6]:
-            thisAppointment.dateEnd = thisAppointment.convertStringToDate(value: keyValue, timezone: timezone)
+            thisAppointment.dateEnd = thisAppointment.convertStringToDate(value: keyValue, timezone: timezone, format: "yyyyMMdd'T'HHmmss'Z'")
         case fileKeys[7]:
-            thisAppointment.lastModified = thisAppointment.convertStringToDate(value: keyValue, timezone: timezone)
+            thisAppointment.lastModified = thisAppointment.convertStringToDate(value: keyValue, timezone: timezone, format: "yyyyMMdd'T'HHmmss'Z'")
         case fileKeys[8]:
             thisAppointment.location = keyValue
         case fileKeys[9]:
             thisAppointment.sequence = Int(keyValue) ?? 0
         case fileKeys[10]:
-           thisAppointment.transparency = thisAppointment.transparencyTypeFromString(value: keyValue)
+            thisAppointment.transparency = thisAppointment.transparencyTypeFromString(value: keyValue)
         case fileKeys[11]:
-            thisAppointment.stamp = thisAppointment.convertStringToDate(value: keyValue, timezone: timezone)
+            thisAppointment.stamp = thisAppointment.convertStringToDate(value: keyValue, timezone: timezone, format: "yyyyMMdd'T'HHmmss'Z'")
         default:
             print("error")
         }
@@ -213,7 +228,7 @@ class Service: NSObject {
     /// - Returns: array of dates in the month
     public func getDaysByMonth(month: String, year: Int) -> [Date] {
         let calendar = Calendar.current
-       
+        
         formatter.dateFormat = "yyyy-MMM"
         
         formatter.timeZone = TimeZone(identifier: "Europe/Kiev")
@@ -238,6 +253,13 @@ class Service: NSObject {
             values.append("\(i)")
         }
         return values
+    }
+    
+    public func dateViladation(startDate: Date, endDate: Date) -> Bool {
+        guard startDate < endDate  else {
+            return false
+        }
+        return true
     }
 }
 

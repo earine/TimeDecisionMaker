@@ -177,8 +177,8 @@
 				9C25D7362288576300653284 /* PeopleViewController.swift */,
 				748F59A52270681B00B88B7D /* ViewController.swift */,
 				9C25D73B22895E7000653284 /* SingleAppointmentViewController.swift */,
-				9C25D7302285C53F00653284 /* AppointmentTableViewCell.swift */,
 				9CF9408C228C788700CE8CA6 /* EditViewController.swift */,
+				9C25D7302285C53F00653284 /* AppointmentTableViewCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";

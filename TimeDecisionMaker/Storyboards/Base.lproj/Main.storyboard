@@ -331,40 +331,67 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date start:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D85-ev-4cA">
-                                <rect key="frame" x="20" y="167" width="85.5" height="21"/>
+                                <rect key="frame" x="20" y="167" width="86" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ADA-JJ-654">
-                                <rect key="frame" x="385" y="166.5" width="9" height="22"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="dd/MM/yyyy HH:mm" textAlignment="right" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ADA-JJ-654">
+                                <rect key="frame" x="215" y="167" width="179" height="21.5"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DGl-YZ-oaP">
+                                <rect key="frame" x="215" y="188" width="179" height="0.5"/>
+                                <color key="backgroundColor" red="0.39607843139999999" green="0.47450980390000003" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.39607843139999999" green="0.47450980390000003" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date end:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="96k-q0-0dG">
-                                <rect key="frame" x="20" y="200" width="78.5" height="21"/>
+                                <rect key="frame" x="20" y="200" width="79" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Syj-64-BFv">
-                                <rect key="frame" x="385" y="199.5" width="9" height="22"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="dd/MM/yyyy HH:mm" textAlignment="right" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Syj-64-BFv">
+                                <rect key="frame" x="211" y="200" width="183" height="21"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d9K-ex-40O">
+                                <rect key="frame" x="215" y="220.5" width="179" height="0.5"/>
+                                <color key="backgroundColor" red="0.39607843139999999" green="0.47450980390000003" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.39607843139999999" green="0.47450980390000003" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="DGl-YZ-oaP" firstAttribute="trailing" secondItem="d9K-ex-40O" secondAttribute="trailing" id="2a0-JX-szi"/>
+                            <constraint firstItem="DGl-YZ-oaP" firstAttribute="bottom" secondItem="ADA-JJ-654" secondAttribute="bottom" id="5co-Ha-LFO"/>
+                            <constraint firstItem="DGl-YZ-oaP" firstAttribute="leading" secondItem="ADA-JJ-654" secondAttribute="leading" id="65K-Ec-RSY"/>
                             <constraint firstItem="96k-q0-0dG" firstAttribute="leading" secondItem="D85-ev-4cA" secondAttribute="leading" id="6h9-DU-erd"/>
+                            <constraint firstItem="d9K-ex-40O" firstAttribute="top" secondItem="Syj-64-BFv" secondAttribute="bottom" constant="-0.5" id="8jZ-Eq-wcZ"/>
+                            <constraint firstItem="d9K-ex-40O" firstAttribute="bottom" secondItem="Syj-64-BFv" secondAttribute="bottom" id="8q4-Rw-tey"/>
+                            <constraint firstItem="Syj-64-BFv" firstAttribute="top" secondItem="96k-q0-0dG" secondAttribute="top" id="AaQ-bE-tBp"/>
+                            <constraint firstItem="ADA-JJ-654" firstAttribute="top" secondItem="D85-ev-4cA" secondAttribute="top" id="Adn-yK-Wxs"/>
+                            <constraint firstItem="d9K-ex-40O" firstAttribute="width" secondItem="Syj-64-BFv" secondAttribute="width" constant="-4" id="DcC-7M-fgQ"/>
                             <constraint firstItem="D85-ev-4cA" firstAttribute="leading" secondItem="xjg-Uq-34W" secondAttribute="leading" constant="20" id="Dym-kL-3u0"/>
+                            <constraint firstItem="Syj-64-BFv" firstAttribute="firstBaseline" secondItem="96k-q0-0dG" secondAttribute="baseline" id="EB3-b4-yQS"/>
                             <constraint firstItem="Syj-64-BFv" firstAttribute="centerY" secondItem="96k-q0-0dG" secondAttribute="centerY" id="HuN-ZA-bpr"/>
                             <constraint firstItem="96k-q0-0dG" firstAttribute="top" secondItem="D85-ev-4cA" secondAttribute="bottom" constant="12" id="KJm-Df-CsM"/>
+                            <constraint firstItem="DGl-YZ-oaP" firstAttribute="width" secondItem="ADA-JJ-654" secondAttribute="width" id="MSf-L0-qpf"/>
+                            <constraint firstItem="d9K-ex-40O" firstAttribute="top" secondItem="ADA-JJ-654" secondAttribute="bottom" constant="32" id="Sls-eA-msU"/>
                             <constraint firstItem="ADA-JJ-654" firstAttribute="centerY" secondItem="D85-ev-4cA" secondAttribute="centerY" id="TXN-H0-0RI"/>
-                            <constraint firstItem="Syj-64-BFv" firstAttribute="leading" secondItem="ADA-JJ-654" secondAttribute="leading" id="gob-aq-WYS"/>
+                            <constraint firstItem="DGl-YZ-oaP" firstAttribute="leading" secondItem="d9K-ex-40O" secondAttribute="leading" id="VDo-Te-IJp"/>
+                            <constraint firstItem="d9K-ex-40O" firstAttribute="leading" secondItem="Syj-64-BFv" secondAttribute="leading" constant="4" id="cwo-0g-pqZ"/>
+                            <constraint firstItem="DGl-YZ-oaP" firstAttribute="top" secondItem="xjg-Uq-34W" secondAttribute="top" constant="48" id="ehY-9U-Hp1"/>
+                            <constraint firstItem="Syj-64-BFv" firstAttribute="leading" secondItem="ADA-JJ-654" secondAttribute="leading" constant="-4" id="gob-aq-WYS"/>
                             <constraint firstItem="xjg-Uq-34W" firstAttribute="trailing" secondItem="ADA-JJ-654" secondAttribute="trailing" constant="20" id="kgl-Lo-AjR"/>
                             <constraint firstItem="D85-ev-4cA" firstAttribute="top" secondItem="xjg-Uq-34W" secondAttribute="top" constant="27" id="q3J-4X-fvT"/>
+                            <constraint firstItem="ADA-JJ-654" firstAttribute="firstBaseline" secondItem="D85-ev-4cA" secondAttribute="baseline" id="s25-jR-vbv"/>
+                            <constraint firstItem="DGl-YZ-oaP" firstAttribute="top" secondItem="ADA-JJ-654" secondAttribute="bottom" constant="-0.5" id="sHm-uK-pSk"/>
+                            <constraint firstItem="DGl-YZ-oaP" firstAttribute="trailing" secondItem="ADA-JJ-654" secondAttribute="trailing" id="vus-qc-gpL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xjg-Uq-34W"/>
                     </view>

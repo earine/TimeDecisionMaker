@@ -18,6 +18,7 @@ class SingleAppointmentViewController: UIViewController {
     @IBOutlet weak var descriptionCaptionLabel: UILabel!
     
     public var selectedEvent = Appointment()
+    public var selectedPerson: Person?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +34,8 @@ class SingleAppointmentViewController: UIViewController {
         timeEndLabel.text = selectedEvent.hoursValueFromDateToString(date: selectedEvent.dateInterval.end)
         dateStartLabel.text = "\(selectedEvent.dateInterval.start.monthAsString()) \(selectedEvent.dateInterval.start.dayAsString())"
         dateEndLabel.text = "\(selectedEvent.dateInterval.end.monthAsString()) \(selectedEvent.dateInterval.end.dayAsString())"
-        statusLabel.text = selectedEvent.status.description
+        statusLabel.text = selectedEvent.status.description.capitalized
+        
         if selectedEvent.descriptionAp != "" {
             descriptionCaptionLabel.text = selectedEvent.descriptionAp
             descriptionLabel.isHidden = false
@@ -47,7 +49,7 @@ class SingleAppointmentViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "goToEditView") {
             let vc = segue.destination as! EditViewController
-            
+            vc.selectedPerson = selectedPerson
             vc.selectedEvent = selectedEvent
         }
     }
