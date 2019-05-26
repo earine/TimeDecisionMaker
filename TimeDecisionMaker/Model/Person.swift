@@ -18,4 +18,8 @@ class Person: NSObject {
         self.ICSPath = ICSPath
     }
     
+    override init() {
+        self.ICSPath = ""
+        self.name = ""
+    }
 }

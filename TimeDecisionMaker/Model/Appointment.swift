@@ -122,12 +122,6 @@ class Appointment : NSObject {
             return Date()
         }
     }
-    
-    public func dateToString(date: Date) -> String {
-        dateFormatter.dateFormat = "yyyy.MM.dd HH:mm"
-        return dateFormatter.string(from: date)
-    }
-    
    
 }
 

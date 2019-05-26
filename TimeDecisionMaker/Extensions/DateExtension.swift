@@ -8,6 +8,8 @@
 import Foundation
 
 extension Date {
+    
+    
     func convertToTimeZone(initTimeZone: TimeZone, timeZone: TimeZone) -> Date {
         let delta = TimeInterval(timeZone.secondsFromGMT() - initTimeZone.secondsFromGMT())
         return addingTimeInterval(delta)
@@ -30,4 +32,11 @@ extension Date {
         df.setLocalizedDateFormatFromTemplate("yyyy")
         return Int(df.string(from: self))!
     }
+    
+    func dateToString() -> String {
+        let df = DateFormatter()
+        df.dateFormat = "yyyy.MM.dd HH:mm"
+        return df.string(from: self)
+    }
 }
+

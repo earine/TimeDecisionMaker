@@ -49,7 +49,6 @@ class AppointmentTableViewCell: UITableViewCell {
     public func UIforTodayView() {
         dateStarterImageView.backgroundColor = UIColor(rgb: 0x555273)
         eventDateLabel.textColor = UIColor(rgb: 0x555273)
-        
     }
     
     public func UIforFirstRow(dateValue: String, weekdayValue: String) {
