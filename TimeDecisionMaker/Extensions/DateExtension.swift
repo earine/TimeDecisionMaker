@@ -9,7 +9,6 @@ import Foundation
 
 extension Date {
     
-    
     func convertToTimeZone(initTimeZone: TimeZone, timeZone: TimeZone) -> Date {
         let delta = TimeInterval(timeZone.secondsFromGMT() - initTimeZone.secondsFromGMT())
         return addingTimeInterval(delta)
@@ -35,7 +34,13 @@ extension Date {
     
     func dateToString() -> String {
         let df = DateFormatter()
-        df.dateFormat = "yyyy.MM.dd HH:mm"
+        df.dateFormat = "dd MMM HH:mm"
+        return df.string(from: self)
+    }
+    
+    func getWeekDay() -> String {
+         let df = DateFormatter()
+        df.dateFormat = "EE"
         return df.string(from: self)
     }
 }

@@ -15,7 +15,9 @@ class CalculateAppointmentViewController: UIViewController {
     
     @IBOutlet weak var firstPersonTextField: UITextField!
     @IBOutlet weak var secondPersonTextField: UITextField!
+    @IBOutlet weak var durationTextField: UITextField!
     
+    @IBOutlet weak var durationPicker: UIDatePicker!
     @IBOutlet weak var personPicker: UIPickerView!
     @IBOutlet weak var secondPersonPicker: UIPickerView!
     @IBOutlet weak var doneButton: UIButton!
@@ -38,13 +40,26 @@ class CalculateAppointmentViewController: UIViewController {
         picker.isHidden = !check
     }
     
+    private func showDurationPickerView(check: Bool) {
+        doneButton.isHidden = !check
+        cancelButton.isHidden = !check
+        durationPicker.isHidden = !check
+    }
+    
     
     @IBAction func firstPersonTapped(_ sender: Any) {
+        showPickerView(check: false, picker: secondPersonPicker)
         showPickerView(check: true, picker: personPicker)
     }
     
     @IBAction func secondPersonTapped(_ sender: Any) {
+        showPickerView(check: false, picker: personPicker)
         showPickerView(check: true, picker: secondPersonPicker)
+    }
+    
+    @IBAction func durationPicked(_ sender: Any) {
+        showDurationPickerView(check: true)
+        durationTextField.text = durationPicker.countDownDuration.toString()
     }
     
     // Cancel button
@@ -101,3 +116,4 @@ extension CalculateAppointmentViewController : UIPickerViewDelegate, UIPickerVie
         return people[row].name
     }
 }
+
