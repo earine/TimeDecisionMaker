@@ -12,6 +12,7 @@ class CalculateAppointmentViewController: UIViewController {
     public var people = [Person]()
     private var firstSelectedPerson = Person()
     private var secondSelectedPerson = Person()
+    private var selectedDuration = TimeInterval()
     
     @IBOutlet weak var firstPersonTextField: UITextField!
     @IBOutlet weak var secondPersonTextField: UITextField!
@@ -21,6 +22,7 @@ class CalculateAppointmentViewController: UIViewController {
     @IBOutlet weak var personPicker: UIPickerView!
     @IBOutlet weak var secondPersonPicker: UIPickerView!
     @IBOutlet weak var doneButton: UIButton!
+    @IBOutlet weak var doneDurationButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
     
     override func viewDidLoad() {
@@ -32,6 +34,7 @@ class CalculateAppointmentViewController: UIViewController {
         firstPersonTextField.text = "None"
         showPickerView(check: false, picker: personPicker)
         showPickerView(check: false, picker: secondPersonPicker)
+        showDurationPickerView(check: false)
     }
 
     private func showPickerView(check: Bool, picker: UIPickerView) {
@@ -41,7 +44,7 @@ class CalculateAppointmentViewController: UIViewController {
     }
     
     private func showDurationPickerView(check: Bool) {
-        doneButton.isHidden = !check
+        doneDurationButton.isHidden = !check
         cancelButton.isHidden = !check
         durationPicker.isHidden = !check
     }
@@ -50,22 +53,26 @@ class CalculateAppointmentViewController: UIViewController {
     @IBAction func firstPersonTapped(_ sender: Any) {
         showPickerView(check: false, picker: secondPersonPicker)
         showPickerView(check: true, picker: personPicker)
+        showDurationPickerView(check: false)
     }
     
     @IBAction func secondPersonTapped(_ sender: Any) {
         showPickerView(check: false, picker: personPicker)
         showPickerView(check: true, picker: secondPersonPicker)
+        showDurationPickerView(check: false)
     }
     
     @IBAction func durationPicked(_ sender: Any) {
+        showPickerView(check: false, picker: personPicker)
+        showPickerView(check: false, picker: secondPersonPicker)
         showDurationPickerView(check: true)
-        durationTextField.text = durationPicker.countDownDuration.toString()
     }
     
     // Cancel button
     @IBAction func cancelButtonClicked(sender: UIButton) {
         showPickerView(check: false, picker: personPicker)
         showPickerView(check: false, picker: secondPersonPicker)
+        showDurationPickerView(check: false)
     }
     
     
@@ -74,7 +81,13 @@ class CalculateAppointmentViewController: UIViewController {
         showPickerView(check: false, picker: secondPersonPicker)
     }
     
-    @IBAction func doneButtonTapped(_ sender: Any) {
+    @IBAction func doneDurationButtonClicked(sender: UIButton) {
+        durationTextField.text = durationPicker.countDownDuration.toString()
+        selectedDuration = durationPicker.countDownDuration
+        showDurationPickerView(check: false)
+    }
+    
+    @IBAction func doneNavigationButtonTapped(_ sender: Any) {
         if firstPersonTextField.text != secondPersonTextField.text {
             performSegue(withIdentifier: "goToFreeSlots", sender: nil)
         } else {
@@ -92,6 +105,7 @@ class CalculateAppointmentViewController: UIViewController {
             
             vc.firstPerson = firstSelectedPerson
             vc.secondPerson = secondSelectedPerson
+            vc.duration = selectedDuration
         }
     }
 }

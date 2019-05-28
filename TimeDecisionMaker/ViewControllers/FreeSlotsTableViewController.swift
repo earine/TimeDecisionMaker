@@ -11,6 +11,7 @@ class FreeSlotsTableViewController: UIViewController {
 
     public var firstPerson = Person()
     public var secondPerson = Person()
+    public var duration = TimeInterval()
     private var freeSlots = [DateInterval]()
     
     @IBOutlet weak var noFreeSlotsView: UIView!
@@ -19,8 +20,7 @@ class FreeSlotsTableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        freeSlots = RDTimeDecisionMaker().suggestAppointments(organizerICS: firstPerson.ICSPath, attendeeICS: secondPerson.ICSPath, duration: 600)
-
+        freeSlots = RDTimeDecisionMaker().suggestAppointments(organizerICS: firstPerson.ICSPath, attendeeICS: secondPerson.ICSPath, duration: duration)
        
     }
 }
