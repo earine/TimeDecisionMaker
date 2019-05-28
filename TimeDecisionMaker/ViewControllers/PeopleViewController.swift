@@ -20,11 +20,14 @@ class PeopleViewController: UIViewController {
         appendPersonToPeopleArray()
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.largeTitleDisplayMode = .always
+        print(RDTimeDecisionMaker().suggestAppointments(organizerICS: "A", attendeeICS: "B", duration: 600)
+)
     }
     
     private func appendPersonToPeopleArray() {
-        people.append(Person(name: "Person 1", ICSPath: organizerICSPath))
-        people.append(Person(name: "Person 2", ICSPath: attendeeICSPath))
+        people.append(Person(name: "Organizer", ICSPath: organizerICSPath))
+        people.append(Person(name: "Attendee", ICSPath: attendeeICSPath))
+        people.append(Person(name: "John", ICSPath: "John"))
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -32,9 +35,13 @@ class PeopleViewController: UIViewController {
             let vc = segue.destination as! ViewController
             
             vc.selectedPerson = selectedPerson
+        } else if segue.identifier == "goToAddingNewEventForTwoPeople" {
+            let vc = segue.destination as! CalculateAppointmentViewController
+            vc.people = people
         }
     }
 }
+
 
 extension PeopleViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

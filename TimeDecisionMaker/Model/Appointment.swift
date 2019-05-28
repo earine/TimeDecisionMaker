@@ -55,10 +55,6 @@ class Appointment : NSObject {
         return !(summary.isEmpty || summary == "" || UID.isEmpty || UID == "" || status == Status.UNSET || sequence == nil || transparency == Transparency.UNSET)
     }
     
-    public func getWeekDay(date: Date) -> String {
-        dateFormatter.dateFormat = "EE"
-        return dateFormatter.string(from: date)
-    }
     
     public func getDayFromDate(date: Date) -> String {
         dateFormatter.dateFormat = "dd"
@@ -122,12 +118,6 @@ class Appointment : NSObject {
             return Date()
         }
     }
-    
-    public func dateToString(date: Date) -> String {
-        dateFormatter.dateFormat = "yyyy.MM.dd HH:mm"
-        return dateFormatter.string(from: date)
-    }
-    
    
 }
 

@@ -95,7 +95,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
         cell.makeRegularCellStyle()
         if appointment.summary.isEmpty {
             cell.UIforDayWithoutEvents()
-            cell.UIforFirstRow(dateValue: appointment.getDayFromDate(date: daysInMonth[refIndex]), weekdayValue: appointment.getWeekDay(date: daysInMonth[refIndex]))
+            cell.UIforFirstRow(dateValue: appointment.getDayFromDate(date: daysInMonth[refIndex]), weekdayValue: daysInMonth[refIndex].getWeekDay())
         } else {
             cell.UIforDayWithEvents()
             cell.noEventsLabel.isHidden = true
@@ -104,7 +104,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
             cell.durationLabel.text = appointment.durarationToString(dateInterval: appointment.dateInterval)
             
             if indexPath.row == 0 {
-                cell.UIforFirstRow(dateValue: appointment.getDayFromDate(date: daysInMonth[refIndex]), weekdayValue: appointment.getWeekDay(date: daysInMonth[refIndex]))
+                cell.UIforFirstRow(dateValue: appointment.getDayFromDate(date: daysInMonth[refIndex]), weekdayValue: daysInMonth[refIndex].getWeekDay())
             } else {
                 cell.UIforOtherRow()
             }

@@ -10,7 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TimeDecisionMaker/ViewControllers/EditViewController.swift"
+<<<<<<< HEAD
             timestampString = "580569937.91304"
+=======
+            timestampString = "580644357.3449759"
+>>>>>>> feature/UIforAppointmentCalculation
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "17"
@@ -139,7 +143,11 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "83"
             endingLineNumber = "83"
+<<<<<<< HEAD
             landmarkName = "findTimeForAppointment(person1:person2:duration:)"
+=======
+            landmarkName = "findFreeSlots(dates:)"
+>>>>>>> feature/UIforAppointmentCalculation
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

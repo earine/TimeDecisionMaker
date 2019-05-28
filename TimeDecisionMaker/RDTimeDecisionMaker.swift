@@ -22,9 +22,10 @@ class RDTimeDecisionMaker: NSObject {
     func suggestAppointments(organizerICS:String,
                              attendeeICS:String,
                              duration:TimeInterval) -> [DateInterval] {
-        let organizerFreeSlots = makeDateIntervalList(objects: service.fetchAppointment(resourceFile: organizerICS))
+        var obj = service.fetchAppointment(resourceFile: organizerICS)
+        let organizerFreeSlots = makeDateIntervalList(objects: obj)
         let attendeeFreeSlots = makeDateIntervalList(objects: service.fetchAppointment(resourceFile: attendeeICS))
-        
+
         let suggestedAppointments = findTimeForAppointment(person1: organizerFreeSlots, person2: attendeeFreeSlots, duration: duration)
         if suggestedAppointments.isEmpty {
             return []
@@ -33,14 +34,17 @@ class RDTimeDecisionMaker: NSObject {
         }
     }
     
-    private func makeDateIntervalList(objects: [Appointment]) -> [DateInterval]{
+    public func makeDateIntervalList(objects: [Appointment]) -> [DateInterval]{
         var dateIntervals = [DateInterval]()
         
         for object in objects {
+            if(object.dateInterval.end > Date()) {
             dateIntervals.append(object.dateInterval)
+        }
         }
         
         dateIntervals.sort()
+        
         var newList = [DateInterval]()
         newList.append(contentsOf: dateIntervals)
         for (i) in 0..<dateIntervals.count {
@@ -58,13 +62,27 @@ class RDTimeDecisionMaker: NSObject {
     private func findFreeSlots(dates: [DateInterval]) -> [DateInterval] {
         var freeSlots = [DateInterval]()
         guard dates.count > 1 else {
+            if dates.first?.end != nil && dates.first?.start != nil{
+                if dates.first!.end < Date() {
+                    return [DateInterval.init(start: Date(), duration: 604800)]
+                } else if dates.first!.start > Date() {
+                    return [DateInterval(start: Date(), end: dates.first!.start), DateInterval(start: dates.first!.end, duration: 604800)]
+                }
+            } else {
+                return [DateInterval.init(start: Date(), duration: 604800)]
+            }
             return []
         }
+        
         for i in 0..<dates.count {
             if i < dates.count-1 && dates[i].start != dates[i+1].start && dates[i].end != dates[i+1].end {
                 freeSlots.append(DateInterval.init(start: dates[i].end, end: dates[i+1].start))
             }
         }
+        
+        freeSlots.append(DateInterval(start: Date(), end: dates.min()!.start))
+        freeSlots.append(DateInterval(start: dates.max()!.end, duration: 604800))
+        freeSlots.sort()
         return freeSlots
     }
     
