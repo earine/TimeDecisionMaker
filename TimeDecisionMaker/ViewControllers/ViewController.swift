@@ -34,6 +34,11 @@ class ViewController: UIViewController {
         self.navigationItem.title = initialMonth
         daysInMonth = service.getDaysByMonth(month: initialMonth, year: initialYear)
         let events = service.fetchAppointment(resourceFile: selectedPerson?.ICSPath ?? "A")
+        if events.isEmpty {
+            
+            self.present(Alert().showAlert(titleText: "Oops!", messageText: "Seems like there are no events for selected person :("), animated: true, completion: nil)
+        }
+        
         dictionary = service.getEventsForSelectedMonth(eventsList: events, monthDates: daysInMonth)
         daysInMonth.remove(at: daysInMonth.count - 1)
         
@@ -55,7 +60,7 @@ class ViewController: UIViewController {
                     self.eventsTableView.reloadData()
                 }
             }.present(into: self)
-       eventsTableView.setContentOffset(CGPoint.zero, animated: true)
+        eventsTableView.setContentOffset(CGPoint.zero, animated: true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -95,23 +100,24 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
         cell.makeRegularCellStyle()
         if appointment.summary.isEmpty {
             cell.UIforDayWithoutEvents()
-            cell.UIforFirstRow(dateValue: appointment.getDayFromDate(date: daysInMonth[refIndex]), weekdayValue: appointment.getWeekDay(date: daysInMonth[refIndex]))
+            cell.UIforFirstRow(dateValue: daysInMonth[refIndex].dayAsString(format: "dd"), weekdayValue: daysInMonth[refIndex].getWeekDay())
         } else {
             cell.UIforDayWithEvents()
             cell.noEventsLabel.isHidden = true
             cell.summaryLabel.text = appointment.summary
-            cell.timeLabel.text = appointment.hoursValueFromDateToString(date: appointment.dateInterval.start)
-            cell.durationLabel.text = appointment.durarationToString(dateInterval: appointment.dateInterval)
+            cell.timeLabel.text = appointment.dateInterval.start.hoursValueFromDateToString()
+            cell.durationLabel.text = appointment.dateInterval.duration.toString()
             
             if indexPath.row == 0 {
-                cell.UIforFirstRow(dateValue: appointment.getDayFromDate(date: daysInMonth[refIndex]), weekdayValue: appointment.getWeekDay(date: daysInMonth[refIndex]))
+                cell.UIforFirstRow(dateValue: daysInMonth[refIndex].dayAsString(format: "dd"), weekdayValue: daysInMonth[refIndex].getWeekDay())
             } else {
                 cell.UIforOtherRow()
             }
         }
         
-        if indexPath.section == ((Int(appointment.getDayFromDate(date: Date())) ?? 1)-1) && initialMonth == Date().monthAsString() {
+        if indexPath.section == ((Int(Date().dayAsString(format: "dd")) ?? 1)-1) && initialMonth == Date().monthAsString() {
             cell.UIforTodayView()
+            cell.noEventsLabel.text = "No events for today :("
             cell.backgroundColor = UIColor(rgb: 0xe2eff1)
         }
         
@@ -130,12 +136,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
             selectedEvent = appointment
             performSegue(withIdentifier: "goToSingleView", sender: nil)
         } else {
-            let alert: UIAlertController = UIAlertController(title: "Oops!", message: "You have no events for this date :(", preferredStyle: .alert)
-            
-            let okAction: UIAlertAction = UIAlertAction(title: "Okay", style: .default, handler: nil)
-            alert.addAction(okAction)
-            
-            self.present(alert, animated: true, completion: nil)
+            self.present(Alert().showAlert(titleText: "Oops!", messageText: "You have no events for this date :("), animated: true, completion: nil)
         }
     }
     

@@ -15,4 +15,13 @@ extension TimeInterval {
         formatter.zeroFormattingBehavior = .pad
         
         return formatter.string(from: self)
-    }}
+    }
+    
+    func toString() -> String {
+        if self.format(using: [.minute]) == "0m"{
+            return self.format(using: [.hour]) ?? ""
+        } else {
+            return self.format(using: [.hour, .minute]) ?? ""
+        }
+    }
+}

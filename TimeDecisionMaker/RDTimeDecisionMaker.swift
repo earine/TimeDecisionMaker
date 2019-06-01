@@ -26,6 +26,7 @@ class RDTimeDecisionMaker: NSObject {
         let attendeeFreeSlots = makeDateIntervalList(objects: service.fetchAppointment(resourceFile: attendeeICS))
         
         let suggestedAppointments = findTimeForAppointment(person1: organizerFreeSlots, person2: attendeeFreeSlots, duration: duration)
+        
         if suggestedAppointments.isEmpty {
             return []
         } else {
@@ -33,16 +34,24 @@ class RDTimeDecisionMaker: NSObject {
         }
     }
     
-    private func makeDateIntervalList(objects: [Appointment]) -> [DateInterval]{
+    /// Method for making date intervals from appointments' array
+    ///
+    /// - Parameter objects: an array of appointments
+    /// - Returns: calculated freetime date intervals
+    public func makeDateIntervalList(objects: [Appointment]) -> [DateInterval]{
         var dateIntervals = [DateInterval]()
         
         for object in objects {
-            dateIntervals.append(object.dateInterval)
+            if(object.dateInterval.end > Date()) {
+                dateIntervals.append(object.dateInterval)
+            }
         }
         
         dateIntervals.sort()
+        
         var newList = [DateInterval]()
         newList.append(contentsOf: dateIntervals)
+        
         for (i) in 0..<dateIntervals.count {
             for j in 0..<dateIntervals.count {
                 if j != i && dateIntervals[i].contains(dateIntervals[j].start) && dateIntervals[i].contains(dateIntervals[j].end) {
@@ -55,19 +64,44 @@ class RDTimeDecisionMaker: NSObject {
         return findFreeSlots(dates: newList)
     }
     
+    /// Method to perform findind freetime from event's date
+    ///
+    /// - Parameter dates: an array of event's dates
+    /// - Returns: array of freetime date intervals
     private func findFreeSlots(dates: [DateInterval]) -> [DateInterval] {
         var freeSlots = [DateInterval]()
         guard dates.count > 1 else {
+            if dates.first?.end != nil && dates.first?.start != nil{
+                if dates.first!.end < Date() {
+                    return [DateInterval.init(start: Date(), duration: 604800)]
+                } else if dates.first!.start > Date() {
+                    return [DateInterval(start: Date(), end: dates.first!.start), DateInterval(start: dates.first!.end, duration: 604800)]
+                }
+            } else {
+                return [DateInterval.init(start: Date(), duration: 604800)]
+            }
             return []
         }
+        
         for i in 0..<dates.count {
             if i < dates.count-1 && dates[i].start != dates[i+1].start && dates[i].end != dates[i+1].end {
                 freeSlots.append(DateInterval.init(start: dates[i].end, end: dates[i+1].start))
             }
         }
+        
+        freeSlots.append(DateInterval(start: Date(), end: dates.min()!.start))
+        freeSlots.append(DateInterval(start: dates.max()!.end, duration: 604800))
+        freeSlots.sort()
         return freeSlots
     }
     
+    /// Method
+    ///
+    /// - Parameters:
+    ///   - person1: freetime date intervals of first person
+    ///   - person2: freetime date intervals of second person
+    ///   - duration: finding event's date duration
+    /// - Returns: array of date available time slots
     private func findTimeForAppointment(person1: [DateInterval], person2: [DateInterval], duration: TimeInterval) -> [DateInterval] {
         var optimalTimeIntervals = [DateInterval]()
         for p1 in person1 {

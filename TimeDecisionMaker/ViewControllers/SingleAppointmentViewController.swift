@@ -22,18 +22,17 @@ class SingleAppointmentViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
         updateEventUI()
-        // Do any additional setup after loading the view.
+        
     }
     
     private func updateEventUI() {
         navigationItem.title = selectedEvent.summary
-        timeStartLabel.text = selectedEvent.hoursValueFromDateToString(date: selectedEvent.dateInterval.start)
-        timeEndLabel.text = selectedEvent.hoursValueFromDateToString(date: selectedEvent.dateInterval.end)
-        dateStartLabel.text = "\(selectedEvent.dateInterval.start.monthAsString()) \(selectedEvent.dateInterval.start.dayAsString())"
-        dateEndLabel.text = "\(selectedEvent.dateInterval.end.monthAsString()) \(selectedEvent.dateInterval.end.dayAsString())"
+        timeStartLabel.text = selectedEvent.dateInterval.start.hoursValueFromDateToString()
+        timeEndLabel.text = selectedEvent.dateInterval.end.hoursValueFromDateToString()
+        dateStartLabel.text = "\(selectedEvent.dateInterval.start.monthAsString()) \(selectedEvent.dateInterval.start.dayAsString(format: "d"))"
+        dateEndLabel.text = "\(selectedEvent.dateInterval.end.monthAsString()) \(selectedEvent.dateInterval.end.dayAsString(format: "d"))"
         statusLabel.text = selectedEvent.status.description.capitalized
         
         if selectedEvent.descriptionAp != "" {

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -39,6 +39,16 @@
 		9C3E2B8F228AC39100D57F95 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3E2B87228AC34700D57F95 /* DateExtension.swift */; };
 		9C3E2B91228AC3A800D57F95 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3E2B90228AC3A800D57F95 /* UIViewExtension.swift */; };
 		9C3E2B92228AC3A800D57F95 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3E2B90228AC3A800D57F95 /* UIViewExtension.swift */; };
+		9C4DEC182297D125003D4106 /* CalculateAppointmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4DEC172297D125003D4106 /* CalculateAppointmentViewController.swift */; };
+		9C4DEC192297D125003D4106 /* CalculateAppointmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4DEC172297D125003D4106 /* CalculateAppointmentViewController.swift */; };
+		9C4DEC1B229ACDB8003D4106 /* FreeSlotsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4DEC1A229ACDB8003D4106 /* FreeSlotsTableViewController.swift */; };
+		9C4DEC1C229ACDB9003D4106 /* FreeSlotsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4DEC1A229ACDB8003D4106 /* FreeSlotsTableViewController.swift */; };
+		9C4DEC24229AD914003D4106 /* John.ics in Resources */ = {isa = PBXBuildFile; fileRef = 9C4DEC23229AD914003D4106 /* John.ics */; };
+		9C4DEC25229AD914003D4106 /* John.ics in Resources */ = {isa = PBXBuildFile; fileRef = 9C4DEC23229AD914003D4106 /* John.ics */; };
+		9C4DEC27229B14AC003D4106 /* FreeSlotTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4DEC26229B14AC003D4106 /* FreeSlotTableViewCell.swift */; };
+		9C4DEC28229B14AC003D4106 /* FreeSlotTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4DEC26229B14AC003D4106 /* FreeSlotTableViewCell.swift */; };
+		9CB1EDFF22A2B65B00C05CE3 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB1EDFE22A2B65B00C05CE3 /* Alert.swift */; };
+		9CB1EE0022A2B65B00C05CE3 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB1EDFE22A2B65B00C05CE3 /* Alert.swift */; };
 		9CE4EEA02281F523005212F4 /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE4EE9F2281F522005212F4 /* Appointment.swift */; };
 		9CE4EEA22281F72C005212F4 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE4EEA12281F72C005212F4 /* Service.swift */; };
 		9CF9408D228C788700CE8CA6 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF9408C228C788700CE8CA6 /* EditViewController.swift */; };
@@ -83,6 +93,11 @@
 		9C3E2B89228AC36900D57F95 /* TimeIntervalExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeIntervalExtension.swift; sourceTree = "<group>"; };
 		9C3E2B8B228AC38500D57F95 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		9C3E2B90228AC3A800D57F95 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		9C4DEC172297D125003D4106 /* CalculateAppointmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculateAppointmentViewController.swift; sourceTree = "<group>"; };
+		9C4DEC1A229ACDB8003D4106 /* FreeSlotsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeSlotsTableViewController.swift; sourceTree = "<group>"; };
+		9C4DEC23229AD914003D4106 /* John.ics */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = John.ics; path = ../John.ics; sourceTree = "<group>"; };
+		9C4DEC26229B14AC003D4106 /* FreeSlotTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeSlotTableViewCell.swift; sourceTree = "<group>"; };
+		9CB1EDFE22A2B65B00C05CE3 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		9CE4EE9F2281F522005212F4 /* Appointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appointment.swift; sourceTree = "<group>"; };
 		9CE4EEA12281F72C005212F4 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		9CF9408C228C788700CE8CA6 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
@@ -176,9 +191,12 @@
 			children = (
 				9C25D7362288576300653284 /* PeopleViewController.swift */,
 				748F59A52270681B00B88B7D /* ViewController.swift */,
+				9C25D7302285C53F00653284 /* AppointmentTableViewCell.swift */,
 				9C25D73B22895E7000653284 /* SingleAppointmentViewController.swift */,
 				9CF9408C228C788700CE8CA6 /* EditViewController.swift */,
-				9C25D7302285C53F00653284 /* AppointmentTableViewCell.swift */,
+				9C4DEC172297D125003D4106 /* CalculateAppointmentViewController.swift */,
+				9C4DEC1A229ACDB8003D4106 /* FreeSlotsTableViewController.swift */,
+				9C4DEC26229B14AC003D4106 /* FreeSlotTableViewCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -196,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				748F59C922706C6600B88B7D /* A.ics */,
+				9C4DEC23229AD914003D4106 /* John.ics */,
 				748F59CD22706EB300B88B7D /* B.ics */,
 			);
 			path = Appointments;
@@ -216,6 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				9CE4EE9F2281F522005212F4 /* Appointment.swift */,
+				9CB1EDFE22A2B65B00C05CE3 /* Alert.swift */,
 				9C25D73822885E6B00653284 /* Person.swift */,
 			);
 			path = Model;
@@ -317,6 +337,7 @@
 			files = (
 				748F59AE2270681D00B88B7D /* LaunchScreen.storyboard in Resources */,
 				748F59CE22706EB300B88B7D /* B.ics in Resources */,
+				9C4DEC24229AD914003D4106 /* John.ics in Resources */,
 				748F59AB2270681D00B88B7D /* Assets.xcassets in Resources */,
 				748F59A92270681B00B88B7D /* Main.storyboard in Resources */,
 				748F59CA22706C6600B88B7D /* A.ics in Resources */,
@@ -329,6 +350,7 @@
 			files = (
 				748F59CF22706EB300B88B7D /* B.ics in Resources */,
 				748F59CB22706C6600B88B7D /* A.ics in Resources */,
+				9C4DEC25229AD914003D4106 /* John.ics in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,17 +398,16 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-TimeDecisionMaker/Pods-TimeDecisionMaker-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/SBPickerSelector/SBPickerSelector.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TimeDecisionMaker/Pods-TimeDecisionMaker-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBPickerSelector.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TimeDecisionMaker/Pods-TimeDecisionMaker-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TimeDecisionMaker/Pods-TimeDecisionMaker-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TimeDecisionMaker/Pods-TimeDecisionMaker-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -396,14 +417,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CB1EDFF22A2B65B00C05CE3 /* Alert.swift in Sources */,
 				748F59C72270687C00B88B7D /* RDTimeDecisionMaker.swift in Sources */,
+				9C4DEC182297D125003D4106 /* CalculateAppointmentViewController.swift in Sources */,
 				9C3E2B88228AC34700D57F95 /* DateExtension.swift in Sources */,
 				9C25D7372288576300653284 /* PeopleViewController.swift in Sources */,
 				748F59A62270681B00B88B7D /* ViewController.swift in Sources */,
 				9C25D73C22895E7000653284 /* SingleAppointmentViewController.swift in Sources */,
 				9CE4EEA22281F72C005212F4 /* Service.swift in Sources */,
+				9C4DEC1B229ACDB8003D4106 /* FreeSlotsTableViewController.swift in Sources */,
 				9CF9408D228C788700CE8CA6 /* EditViewController.swift in Sources */,
 				748F59A42270681B00B88B7D /* AppDelegate.swift in Sources */,
+				9C4DEC27229B14AC003D4106 /* FreeSlotTableViewCell.swift in Sources */,
 				9CE4EEA02281F523005212F4 /* Appointment.swift in Sources */,
 				9C3E2B8C228AC38500D57F95 /* StringExtension.swift in Sources */,
 				9C3E2B91228AC3A800D57F95 /* UIViewExtension.swift in Sources */,
@@ -420,6 +445,7 @@
 				9CF9408E228C788700CE8CA6 /* EditViewController.swift in Sources */,
 				9C25D73D22895E7E00653284 /* SingleAppointmentViewController.swift in Sources */,
 				9C3E2B8E228AC38E00D57F95 /* TimeIntervalExtension.swift in Sources */,
+				9CB1EE0022A2B65B00C05CE3 /* Alert.swift in Sources */,
 				9C25D72F2284971300653284 /* ViewController.swift in Sources */,
 				748F59B92270681D00B88B7D /* TimeDecisionMakerTests.swift in Sources */,
 				748F59C82270687C00B88B7D /* RDTimeDecisionMaker.swift in Sources */,
@@ -428,6 +454,9 @@
 				9C3E2B8F228AC39100D57F95 /* DateExtension.swift in Sources */,
 				9C3E2B8D228AC38B00D57F95 /* StringExtension.swift in Sources */,
 				9C25D73A22885E6E00653284 /* Person.swift in Sources */,
+				9C4DEC192297D125003D4106 /* CalculateAppointmentViewController.swift in Sources */,
+				9C4DEC1C229ACDB9003D4106 /* FreeSlotsTableViewController.swift in Sources */,
+				9C4DEC28229B14AC003D4106 /* FreeSlotTableViewCell.swift in Sources */,
 				9C25D72E228495D900653284 /* Appointment.swift in Sources */,
 				9C25D7322285C58600653284 /* AppointmentTableViewCell.swift in Sources */,
 			);

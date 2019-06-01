@@ -11,7 +11,7 @@ class Service: NSObject {
     
     private var fileKeys = ["SUMMARY", "CREATED", "STATUS", "DESCRIPTION", "UID", "DTSTART", "DTEND", "LAST-MODIFIED", "LOCATION", "SEQUENCE", "TRANSP", "DTSTAMP"]
     private var timezone: String!
-    var appointments = [Appointment]()
+    private var appointments = [Appointment]()
     private let formatter = DateFormatter()
     
     /// Method for reading .ics file and fetching data from it
@@ -193,7 +193,7 @@ class Service: NSObject {
         case fileKeys[0]:
             thisAppointment.summary = keyValue
         case fileKeys[1]:
-            thisAppointment.created = thisAppointment.convertStringToDate(value: keyValue, timezone: timezone, format: "yyyyMMdd'T'HHmmss'Z'")
+            thisAppointment.created = keyValue.convertStringToDate(timezone: timezone, format: "yyyyMMdd'T'HHmmss'Z'")
         case fileKeys[2]:
             thisAppointment.status = thisAppointment.statusTypeFromString(value: keyValue)
         case fileKeys[3]:
@@ -201,11 +201,11 @@ class Service: NSObject {
         case fileKeys[4]:
             thisAppointment.UID = keyValue
         case fileKeys[5]:
-            thisAppointment.dateStart = thisAppointment.convertStringToDate(value: keyValue, timezone: timezone, format: "yyyyMMdd'T'HHmmss'Z'")
+            thisAppointment.dateStart = keyValue.convertStringToDate(timezone: timezone, format: "yyyyMMdd'T'HHmmss'Z'")
         case fileKeys[6]:
-            thisAppointment.dateEnd = thisAppointment.convertStringToDate(value: keyValue, timezone: timezone, format: "yyyyMMdd'T'HHmmss'Z'")
+            thisAppointment.dateEnd = keyValue.convertStringToDate(timezone: timezone, format: "yyyyMMdd'T'HHmmss'Z'")
         case fileKeys[7]:
-            thisAppointment.lastModified = thisAppointment.convertStringToDate(value: keyValue, timezone: timezone, format: "yyyyMMdd'T'HHmmss'Z'")
+            thisAppointment.lastModified = keyValue.convertStringToDate(timezone: timezone, format: "yyyyMMdd'T'HHmmss'Z'")
         case fileKeys[8]:
             thisAppointment.location = keyValue
         case fileKeys[9]:
@@ -213,7 +213,7 @@ class Service: NSObject {
         case fileKeys[10]:
             thisAppointment.transparency = thisAppointment.transparencyTypeFromString(value: keyValue)
         case fileKeys[11]:
-            thisAppointment.stamp = thisAppointment.convertStringToDate(value: keyValue, timezone: timezone, format: "yyyyMMdd'T'HHmmss'Z'")
+            thisAppointment.stamp = keyValue.convertStringToDate(timezone: timezone, format: "yyyyMMdd'T'HHmmss'Z'")
         default:
             print("error")
         }
@@ -255,6 +255,12 @@ class Service: NSObject {
         return values
     }
     
+    /// Method for checking if date interval is ready for manipulations
+    ///
+    /// - Parameters:
+    ///   - startDate: start date
+    ///   - endDate: end date
+    /// - Returns: returns true if dates are ready for date interval type
     public func dateViladation(startDate: Date, endDate: Date) -> Bool {
         guard startDate < endDate  else {
             return false
