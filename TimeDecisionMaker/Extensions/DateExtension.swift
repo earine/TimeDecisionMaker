@@ -14,9 +14,9 @@ extension Date {
         return addingTimeInterval(delta)
     }
     
-    func dayAsString() -> String {
+    func dayAsString(format: String) -> String {
         let df = DateFormatter()
-        df.setLocalizedDateFormatFromTemplate("d")
+        df.setLocalizedDateFormatFromTemplate(format)
         return df.string(from: self)
     }
     
@@ -42,6 +42,14 @@ extension Date {
          let df = DateFormatter()
         df.dateFormat = "EE"
         return df.string(from: self)
+    }
+    
+    func hoursValueFromDateToString() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "hh:mm a"
+        dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
+        
+        return dateFormatter.string(from: self)
     }
 }
 

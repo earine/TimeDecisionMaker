@@ -20,4 +20,14 @@ extension String {
             }
         }
     }
+    
+    func convertStringToDate(timezone: String, format: String) -> Date {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        if let date = dateFormatter.date(from: self) {
+            return date.convertToTimeZone(initTimeZone:TimeZone(abbreviation: "UTC")!, timeZone: TimeZone(identifier: timezone)!)
+        } else {
+            return Date()
+        }
+    }
 }

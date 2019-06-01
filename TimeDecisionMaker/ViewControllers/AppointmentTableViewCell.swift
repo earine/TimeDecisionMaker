@@ -8,7 +8,7 @@
 import UIKit
 
 class AppointmentTableViewCell: UITableViewCell {
-
+    
     
     @IBOutlet weak var lineImage: UIImageView!
     @IBOutlet weak var eventDateLabel: UILabel!
@@ -23,11 +23,9 @@ class AppointmentTableViewCell: UITableViewCell {
         super.awakeFromNib()
         updateUI()
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        
     }
     
     public func UIforDayWithoutEvents() {
@@ -35,7 +33,7 @@ class AppointmentTableViewCell: UITableViewCell {
         summaryLabel.isHidden = true
         timeLabel.isHidden = true
         durationLabel.isHidden = true
-        noEventsLabel.text = "No events for today :("
+        noEventsLabel.text = "No events for this date :("
         
     }
     
@@ -75,8 +73,8 @@ class AppointmentTableViewCell: UITableViewCell {
         dateStarterImageView.cornerRadiusRatio = 0.5
         makeRegularCellStyle()
     }
-
-
+    
+    
 }
 
 extension UIColor {

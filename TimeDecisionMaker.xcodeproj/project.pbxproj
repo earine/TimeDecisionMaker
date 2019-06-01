@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -47,6 +47,8 @@
 		9C4DEC25229AD914003D4106 /* John.ics in Resources */ = {isa = PBXBuildFile; fileRef = 9C4DEC23229AD914003D4106 /* John.ics */; };
 		9C4DEC27229B14AC003D4106 /* FreeSlotTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4DEC26229B14AC003D4106 /* FreeSlotTableViewCell.swift */; };
 		9C4DEC28229B14AC003D4106 /* FreeSlotTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4DEC26229B14AC003D4106 /* FreeSlotTableViewCell.swift */; };
+		9CB1EDFF22A2B65B00C05CE3 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB1EDFE22A2B65B00C05CE3 /* Alert.swift */; };
+		9CB1EE0022A2B65B00C05CE3 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB1EDFE22A2B65B00C05CE3 /* Alert.swift */; };
 		9CE4EEA02281F523005212F4 /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE4EE9F2281F522005212F4 /* Appointment.swift */; };
 		9CE4EEA22281F72C005212F4 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE4EEA12281F72C005212F4 /* Service.swift */; };
 		9CF9408D228C788700CE8CA6 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF9408C228C788700CE8CA6 /* EditViewController.swift */; };
@@ -95,6 +97,7 @@
 		9C4DEC1A229ACDB8003D4106 /* FreeSlotsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeSlotsTableViewController.swift; sourceTree = "<group>"; };
 		9C4DEC23229AD914003D4106 /* John.ics */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = John.ics; path = ../John.ics; sourceTree = "<group>"; };
 		9C4DEC26229B14AC003D4106 /* FreeSlotTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeSlotTableViewCell.swift; sourceTree = "<group>"; };
+		9CB1EDFE22A2B65B00C05CE3 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		9CE4EE9F2281F522005212F4 /* Appointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appointment.swift; sourceTree = "<group>"; };
 		9CE4EEA12281F72C005212F4 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		9CF9408C228C788700CE8CA6 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
@@ -232,6 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				9CE4EE9F2281F522005212F4 /* Appointment.swift */,
+				9CB1EDFE22A2B65B00C05CE3 /* Alert.swift */,
 				9C25D73822885E6B00653284 /* Person.swift */,
 			);
 			path = Model;
@@ -394,17 +398,16 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-TimeDecisionMaker/Pods-TimeDecisionMaker-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/SBPickerSelector/SBPickerSelector.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TimeDecisionMaker/Pods-TimeDecisionMaker-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SBPickerSelector.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TimeDecisionMaker/Pods-TimeDecisionMaker-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TimeDecisionMaker/Pods-TimeDecisionMaker-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TimeDecisionMaker/Pods-TimeDecisionMaker-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -414,6 +417,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CB1EDFF22A2B65B00C05CE3 /* Alert.swift in Sources */,
 				748F59C72270687C00B88B7D /* RDTimeDecisionMaker.swift in Sources */,
 				9C4DEC182297D125003D4106 /* CalculateAppointmentViewController.swift in Sources */,
 				9C3E2B88228AC34700D57F95 /* DateExtension.swift in Sources */,
@@ -441,6 +445,7 @@
 				9CF9408E228C788700CE8CA6 /* EditViewController.swift in Sources */,
 				9C25D73D22895E7E00653284 /* SingleAppointmentViewController.swift in Sources */,
 				9C3E2B8E228AC38E00D57F95 /* TimeIntervalExtension.swift in Sources */,
+				9CB1EE0022A2B65B00C05CE3 /* Alert.swift in Sources */,
 				9C25D72F2284971300653284 /* ViewController.swift in Sources */,
 				748F59B92270681D00B88B7D /* TimeDecisionMakerTests.swift in Sources */,
 				748F59C82270687C00B88B7D /* RDTimeDecisionMaker.swift in Sources */,

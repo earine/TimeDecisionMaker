@@ -55,29 +55,6 @@ class Appointment : NSObject {
         return !(summary.isEmpty || summary == "" || UID.isEmpty || UID == "" || status == Status.UNSET || sequence == nil || transparency == Transparency.UNSET)
     }
     
-    
-    public func getDayFromDate(date: Date) -> String {
-        dateFormatter.dateFormat = "dd"
-        return dateFormatter.string(from: date)
-    }
-    
-    public func hoursValueFromDateToString(date: Date) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "hh:mm a"
-        dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
-       
-        return dateFormatter.string(from: date)
-    }
-    
-    public func durarationToString(dateInterval: DateInterval) -> String {
-        if dateInterval.duration.format(using: [.minute]) == "0m"{
-            print("true")
-            return dateInterval.duration.format(using: [.hour]) ?? ""
-        } else {
-        return dateInterval.duration.format(using: [.hour, .minute]) ?? ""
-        }
-    }
-    
     public func statusTypeFromString(value: String) -> Status {
         switch value {
         case "TENTATIVE":
@@ -108,15 +85,6 @@ class Appointment : NSObject {
         self.UID = ""
         self.status = Status.UNSET
         self.transparency = Transparency.UNSET
-    }
-    
-    public func convertStringToDate(value: String, timezone: String, format: String) -> Date {
-        dateFormatter.dateFormat = format
-        if let date = dateFormatter.date(from: value) {
-            return date.convertToTimeZone(initTimeZone:TimeZone(abbreviation: "UTC")!, timeZone: TimeZone(identifier: timezone)!)
-        } else {
-            return Date()
-        }
     }
    
 }
